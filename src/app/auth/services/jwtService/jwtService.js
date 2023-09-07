@@ -9,7 +9,7 @@ const baseURL = process.env.REACT_APP_API_URL;
 
 class JwtService extends FuseUtils.EventEmitter {
   init() {
-   // this.setInterceptors();
+    this.setInterceptors();
     this.handleAuthentication();
   }
 
@@ -22,7 +22,7 @@ class JwtService extends FuseUtils.EventEmitter {
         return new Promise((resolve, reject) => {
           if (err.response.status === 401 && err.config && !err.config.__isRetryRequest) {
             // if you ever get an unauthorized response, logout the user
-            this.emit('onAutoLogout', 'Invalid access_token');
+            this.emit('onAutoLogout', 'Invalido access_token');
             this.setSession(null);
           }
           throw err;
@@ -88,29 +88,30 @@ class JwtService extends FuseUtils.EventEmitter {
   signInWithToken = () => {
     return new Promise((resolve, reject) => {
       axios
-        .get(jwtServiceConfig.user.accessToken, {
+        .get(`${jwtServiceConfig.user.accessToken}`, {
           data: {
             access_token: this.getAccessToken(),
           },
         })
         .then((response) => {
+          console.log(response)
           if (response.data.user) {
             this.setSession(response.data.access_token);
             resolve(response.data.user);
           } else {
-            this.logout();
+            // this.logout();
             reject(new Error('Failed to login with token.'));
           }
         })
         .catch((error) => {
-          this.logout();
+          // this.logout();
           reject(new Error('Failed to login with token.'));
         });
     });
   };
 
   setSession = (access_token) => {
-    console.log(access_token)
+    console.log(access_token);
     if (access_token) {
       localStorage.setItem('jwt_access_token', access_token);
       axios.defaults.headers.common.Authorization = `Bearer ${access_token}`;
