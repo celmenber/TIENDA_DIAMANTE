@@ -1,12 +1,15 @@
 import SignUpPage from './SignUpPage';
 import authRoles from '../../auth/authRoles';
 
+const adm = 'admina';
+const valperfil = adm === 'admin';
+
 const SignUpConfig = {
   settings: {
     layout: {
       config: {
         navbar: {
-          display: false,
+          display: valperfil,
         },
         toolbar: {
           display: false,

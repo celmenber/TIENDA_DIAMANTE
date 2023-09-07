@@ -18,7 +18,7 @@ import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { showMessage } from 'app/store/fuse/messageSlice';
 import { CircularProgress } from '@mui/material';
-import jwtService from '../../../auth/services/jwtService';
+import jwtService from '../../auth/services/jwtService';
 
 /**
  * Form Validation Schema

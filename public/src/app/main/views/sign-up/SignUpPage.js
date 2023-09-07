@@ -14,7 +14,7 @@ import Avatar from '@mui/material/Avatar';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import FormHelperText from '@mui/material/FormHelperText';
-import jwtService from '../../../auth/services/jwtService';
+import jwtService from '../../auth/services/jwtService';
 
 /**
  * Form Validation Schema

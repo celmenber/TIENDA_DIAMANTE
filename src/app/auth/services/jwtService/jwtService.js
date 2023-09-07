@@ -9,7 +9,7 @@ const baseURL = process.env.REACT_APP_API_URL;
 
 class JwtService extends FuseUtils.EventEmitter {
   init() {
-    this.setInterceptors();
+   // this.setInterceptors();
     this.handleAuthentication();
   }
 
@@ -110,6 +110,7 @@ class JwtService extends FuseUtils.EventEmitter {
   };
 
   setSession = (access_token) => {
+    console.log(access_token)
     if (access_token) {
       localStorage.setItem('jwt_access_token', access_token);
       axios.defaults.headers.common.Authorization = `Bearer ${access_token}`;
@@ -140,7 +141,7 @@ class JwtService extends FuseUtils.EventEmitter {
   };
 
   getAccessToken = () => {
-    return window.sessionStorage.getItem('jwt_access_token');
+    return window.localStorage.getItem('jwt_access_token');
   };
 }
 

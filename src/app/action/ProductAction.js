@@ -1,8 +1,8 @@
-import AXIOS from "app/configs/interceptors";
-import TYPES from "../type/ProductType";
-import jwtServiceConfig from "../auth/services/jwtService/jwtServiceConfig";
-import { useDispatch } from "react-redux";
-import { showMessage } from "app/store/fuse/messageSlice";
+import AXIOS from 'app/configs/interceptors';
+import { useDispatch } from 'react-redux';
+import TYPES from '../type/ProductType';
+import jwtServiceConfig from '../auth/services/jwtService/jwtServiceConfig';
+
 export const createProductAction = (Data) => ({
   type: TYPES.CREATE_PRODUCT,
   payload: Data,
@@ -19,13 +19,12 @@ export const editProductAction = (Data) => ({
 });
 
 export const getProductAction = (Data) => {
-
   return async (dispatch = useDispatch()) => {
     AXIOS.get(jwtServiceConfig.products.V2.viewProducto)
       .then((response) => {
         const { data } = response.data;
         dispatch(setProductsAction(data));
-        //dispatch(showMessage({ message: "Carga completa" }))
+        // dispatch(showMessage({ message: "Carga completa" }))
       })
       .catch((err) => {
         dispatch(setProductsAction(false));
@@ -68,6 +67,5 @@ export const setBaseCategoriesAction = (Data) => ({
   type: TYPES.SET_BASECATEGORIES,
   payload: Data,
 });
-
 
 export const newProductAction = () => ({ type: TYPES.NEW_PRODUCT });

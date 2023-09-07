@@ -1,10 +1,11 @@
+import { useEffect } from 'react';
 import Typography from '@mui/material/Typography';
 import Paper from '@mui/material/Paper';
-import { useEffect } from 'react';
 import JwtService from '../../auth/services/jwtService';
 
 function SignOutPage() {
   useEffect(() => {
+    console.log(JwtService);
     setTimeout(() => {
       JwtService.logout();
     }, 1000);
@@ -17,7 +18,7 @@ function SignOutPage() {
           <img className="w-48 mx-auto" src="assets/images/logo/logo.svg" alt="logo" />
 
           <Typography className="mt-32 text-4xl font-extrabold tracking-tight leading-tight text-center">
-            ¡Has cerrado sesión!
+            ¡Cerrando sesión!
           </Typography>
         </div>
       </Paper>
