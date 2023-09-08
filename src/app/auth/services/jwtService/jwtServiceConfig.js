@@ -2,6 +2,7 @@ const jwtServiceConfig = {
   user: {
     signIn: 'api/auth/login',
     signUp: 'api/auth/sign-up',
+    accessToken: 'api/auth/access-token',
     updateUser: 'api/auth/user/update',
     viewUser: 'api/users/view-user',
     viewUserById: 'api/users/view-user/{id}',

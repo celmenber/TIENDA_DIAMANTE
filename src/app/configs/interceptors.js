@@ -13,7 +13,7 @@ const AXIOS = axios.create({
   baseURL: API_URL,
 });
 
-AXIOS.interceptors.request.use(
+/* AXIOS.interceptors.request.use(
   (config) => {
     config.headers = {
       ...config.headers,
@@ -24,6 +24,6 @@ AXIOS.interceptors.request.use(
   (error) => {
     return Promise.reject(error);
   }
-);
+); */
 
 export default AXIOS;

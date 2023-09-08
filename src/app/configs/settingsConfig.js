@@ -1,7 +1,7 @@
 import themesConfig from 'app/configs/themesConfig';
 import i18n from '../../i18n';
 
-const layaut = 'layout2'; // layout1 layout2 layout3
+const layaut = 'layout1'; // layout1 layout2 layout3
 
 const settingsConfig = {
   layout: {
@@ -9,7 +9,7 @@ const settingsConfig = {
     config: {}, // checkout default layout configs at app/theme-layouts for example  app/theme-layouts/layout1/Layout1Config.js
   },
   customScrollbars: true,
-  direction: i18n.dir(i18n.options.lng) || 'ltr', // rtl, ltr
+  direction: 'ltr', // rtl, ltr
   theme: {
     main: themesConfig.custom,
     navbar: themesConfig.custom,
