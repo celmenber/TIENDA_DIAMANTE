@@ -1,30 +1,12 @@
-import { ThemeProvider } from "@mui/material/styles";
-import AppBar from "@mui/material/AppBar";
-import Hidden from "@mui/material/Hidden";
-import Toolbar from "@mui/material/Toolbar";
-import clsx from "clsx";
-import { memo } from "react";
-import { useSelector } from "react-redux";
-import {
-  selectFuseCurrentLayoutConfig,
-  selectToolbarTheme,
-} from "app/store/fuse/settingsSlice";
-import AdjustFontSize from "../../shared-components/AdjustFontSize";
-import FullScreenToggle from "../../shared-components/FullScreenToggle";
-import LanguageSwitcher from "../../shared-components/LanguageSwitcher";
-import NotificationPanelToggleButton from "../../shared-components/notificationPanel/NotificationPanelToggleButton";
-import NavigationShortcuts from "../../shared-components/NavigationShortcuts";
-import NavigationSearch from "../../shared-components/NavigationSearch";
-import NavbarToggleButton from "../../shared-components/NavbarToggleButton";
-import UserMenu from "../../shared-components/UserMenu";
-import QuickPanelToggleButton from "../../shared-components/quickPanel/QuickPanelToggleButton";
-import ChatPanelToggleButton from "../../shared-components/chatPanel/ChatPanelToggleButton";
+import { memo } from 'react';
+import { useSelector } from 'react-redux';
+import { selectFuseCurrentLayoutConfig, selectToolbarTheme } from 'app/store/fuse/settingsSlice';
 
 function ToolbarLayout2(props) {
   const config = useSelector(selectFuseCurrentLayoutConfig);
   const toolbarTheme = useSelector(selectToolbarTheme);
 
-  return /*(
+  /* (
     <ThemeProvider theme={toolbarTheme}>
       <AppBar
         id="fuse-toolbar"
@@ -72,7 +54,7 @@ function ToolbarLayout2(props) {
         </Toolbar>
       </AppBar>
     </ThemeProvider>
-  );*/
+  ); */
 }
 
 export default memo(ToolbarLayout2);

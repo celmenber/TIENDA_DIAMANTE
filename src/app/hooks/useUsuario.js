@@ -1,10 +1,6 @@
 /* eslint-disable import/prefer-default-export */
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-
-// import { obtenerPerfilAction } from '../action/PerfilAction';
-// import { obtenerTipoUserAction } from '../action/TipoUserAction';
-
 import {
   crearNuevoUsuarioAction,
   editarUsuarioAction,

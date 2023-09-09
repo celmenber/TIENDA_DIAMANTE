@@ -4,10 +4,8 @@ import { Controller, useForm } from 'react-hook-form';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
-// import { Link } from 'react-router-dom';
 import * as yup from 'yup';
 import _ from '@lodash';
-// import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
 import AvatarGroup from '@mui/material/AvatarGroup';
 import Avatar from '@mui/material/Avatar';
 import Box from '@mui/material/Box';
@@ -134,21 +132,6 @@ function SignInPage() {
                 />
               )}
             />
-
-            {/*  <div className="flex flex-col sm:flex-row items-center justify-center sm:justify-between">
-              <Controller
-                name="remember"
-                control={control}
-                render={({ field }) => (
-                  <FormControl>
-                    <FormControlLabel
-                      label="Remember me"
-                      control={<Checkbox size="small" {...field} />}
-                    />
-                  </FormControl>
-                )}
-              />
-            </div> */}
 
             <Button
               variant="contained"

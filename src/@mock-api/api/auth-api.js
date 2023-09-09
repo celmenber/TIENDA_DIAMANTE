@@ -1,4 +1,4 @@
-import FuseUtils from '@fuse/utils';
+/* eslint-disable consistent-return */
 import _ from '@lodash';
 import Base64 from 'crypto-js/enc-base64';
 import HmacSHA256 from 'crypto-js/hmac-sha256';
@@ -7,44 +7,9 @@ import jwtDecode from 'jwt-decode';
 import mock from '../mock';
 import mockApi from '../mock-api.json';
 
-let usersApi = mockApi.components.examples.auth_users.value;
+const usersApi = mockApi.components.examples.auth_users.value;
 
 /* eslint-disable camelcase */
-
-mock.onGet('/api/auth/login').reply(async (config) => {
-  const data = JSON.parse(config.data);
-  const { email, password } = data;
-  const user = _.cloneDeep(usersApi.find((_user) => _user.data.email === email));
-  const error = [];
-
-  if (!user) {
-    error.push({
-      type: 'email',
-      message: 'Check your email address',
-    });
-  }
-
-  if (user && user.password !== password) {
-    error.push({
-      type: 'password',
-      message: 'Check your password',
-    });
-  }
-
-  if (error.length === 0) {
-    delete user.password;
-
-    const access_token = generateJWTToken({ id: user.uuid });
-
-    const response = {
-      user,
-      access_token,
-    };
-
-    return [200, response];
-  }
-
-});
 
 mock.onGet('/api/auth/access-token').reply((config) => {
   const data = JSON.parse(config.data);
@@ -55,56 +20,8 @@ mock.onGet('/api/auth/access-token').reply((config) => {
 
     const user = _.cloneDeep(usersApi.find((_user) => _user.uuid === id));
 
-    delete user.password;
-
-    const updatedAccessToken = generateJWTToken({ id: user.uuid });
-
-    const response = {
-      user,
-      access_token: updatedAccessToken,
-    };
-
-    return [200, response];
-  }
-  const error = 'Invalid access token detected';
-  return [401, { error }];
-});
-
-mock.onPost('/api/auth/sign-up').reply((request) => {
-  const data = JSON.parse(request.data);
-  const { displayName, password, email } = data;
-  const isEmailExists = usersApi.find((_user) => _user.data.email === email);
-  const error = [];
-
-  if (isEmailExists) {
-    error.push({
-      type: 'email',
-      message: 'The email address is already in use',
-    });
-  }
-
-  if (error.length === 0) {
-    const newUser = {
-      uuid: FuseUtils.generateGUID(),
-      from: 'custom-db',
-      password,
-      role: 'admin',
-      data: {
-        displayName,
-        photoURL: 'assets/images/avatars/Abbott.jpg',
-        email,
-        settings: {},
-        shortcuts: [],
-      },
-    };
-
-    usersApi = [...usersApi, newUser];
-
-    const user = _.cloneDeep(newUser);
-
-    delete user.password;
-
-    const access_token = generateJWTToken({ id: user.uuid });
+    // delete user.password;
+    // const updatedAccessToken = generateJWTToken({ id: user.uuid });
 
     const response = {
       user,
@@ -113,21 +30,8 @@ mock.onPost('/api/auth/sign-up').reply((request) => {
 
     return [200, response];
   }
-  return [200, { error }];
-});
-
-mock.onPost('/api/auth/user/update').reply((config) => {
-  const data = JSON.parse(config.data);
-  const { user } = data;
-
-  usersApi = usersApi.map((_user) => {
-    if (user.uuid === user.id) {
-      return _.merge(_user, user);
-    }
-    return _user;
-  });
-
-  return [200, user];
+  const error = 'Invalid access token detected';
+  return [401, { error }];
 });
 
 /**

@@ -50,13 +50,11 @@ function Layout2(props) {
               )}
             />
           )}
-          
           {config.navbar.display && (
             <NavbarWrapperLayout2
               className={clsx(config.navbar.style === 'fixed' && 'sticky top-0 z-50')}
             />
           )}
-
 
           <div className="sticky top-0 z-99">
             <SettingsPanel />
@@ -70,7 +68,7 @@ function Layout2(props) {
             {props.children}
           </div>
 
-          {config.footer.display && (
+          {!config.footer.display && (
             <FooterLayout2 className={config.footer.style === 'fixed' && 'sticky bottom-0'} />
           )}
         </main>

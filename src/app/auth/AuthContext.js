@@ -12,7 +12,7 @@ function AuthProvider({ children }) {
   const [isAuthenticated, setIsAuthenticated] = useState(undefined);
   const [waitAuthCheck, setWaitAuthCheck] = useState(true);
   const dispatch = useDispatch();
-  // const state = useSelector((state) => state);
+  // const estate = useSelector((state) => state);
 
   useEffect(() => {
     jwtService.on('onAutoLogin', () => {
@@ -32,11 +32,11 @@ function AuthProvider({ children }) {
     });
 
     jwtService.on('onLogin', (user) => {
-      success(user, 'Signed in');
+      success(user, 'Usuario Registrado');
     });
 
     jwtService.on('onLogout', () => {
-      pass('Signed out');
+      pass('Cerró sesión');
 
       dispatch(logoutUser());
     });

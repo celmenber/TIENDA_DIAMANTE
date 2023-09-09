@@ -1,31 +1,32 @@
 /* eslint import/no-extraneous-dependencies: off */
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import history from "@history";
-import _ from "@lodash";
-import { setInitialSettings } from "app/store/fuse/settingsSlice";
-import { showMessage } from "app/store/fuse/messageSlice";
-import settingsConfig from "app/configs/settingsConfig";
-import jwtService from "../auth/services/jwtService";
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import history from '@history';
+import _ from '@lodash';
+import { setInitialSettings } from 'app/store/fuse/settingsSlice';
+import { showMessage } from 'app/store/fuse/messageSlice';
+import settingsConfig from 'app/configs/settingsConfig';
+import jwtService from '../auth/services/jwtService';
 
-export const setUser = createAsyncThunk(
-  "user/setUser",
-  async (user, { dispatch, getState }) => {
-    /*
+export const setUser = createAsyncThunk('user/setUser', async (user, { dispatch, getState }) => {
+  /*
     You can redirect the logged-in user to a specific route depending on his role
     */
 
-    if (user.loginRedirectUrl) {
-      settingsConfig.loginRedirectUrl = "productos"; // for example 'apps/academy'
-    } else {
-      settingsConfig.loginRedirectUrl = "productos";
-    }
-
-    return user;
+  if (user.loginRedirectUrl) {
+    settingsConfig.loginRedirectUrl = user.loginRedirectUrl; // for example 'apps/academy'
   }
-);
+
+  /*   if (user.loginRedirectUrl) {
+    settingsConfig.loginRedirectUrl = 'productos'; // for example 'apps/academy'
+  } else {
+    settingsConfig.loginRedirectUrl = 'productos';
+  } */
+
+  return user;
+});
 
 export const updateUserSettings = createAsyncThunk(
-  "user/updateSettings",
+  'user/updateSettings',
   async (settings, { dispatch, getState }) => {
     const { user } = getState();
     const newUser = _.merge({}, user, { data: { settings } });
@@ -37,7 +38,7 @@ export const updateUserSettings = createAsyncThunk(
 );
 
 export const updateUserShortcuts = createAsyncThunk(
-  "user/updateShortucts",
+  'user/updateShortucts',
   async (shortcuts, { dispatch, getState }) => {
     const { user } = getState();
     const newUser = {
@@ -63,7 +64,7 @@ export const logoutUser = () => async (dispatch, getState) => {
   }
 
   history.push({
-    pathname: "/",
+    pathname: '/',
   });
 
   dispatch(setInitialSettings());
@@ -80,7 +81,7 @@ export const updateUserData = (user) => async (dispatch, getState) => {
   jwtService
     .updateUserData(user)
     .then(() => {
-      dispatch(showMessage({ message: "User data saved with api" }));
+      dispatch(showMessage({ message: 'User data saved with api' }));
     })
     .catch((error) => {
       dispatch(showMessage({ message: error.message }));
@@ -93,7 +94,7 @@ const initialState = {
 };
 
 const userSlice = createSlice({
-  name: "user",
+  name: 'user',
   initialState,
   reducers: {
     userLoggedOut: (state, action) => initialState,

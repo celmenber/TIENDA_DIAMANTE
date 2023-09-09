@@ -36,7 +36,7 @@ function Layout1(props) {
   const { routes } = appContext;
 
   return (
-    <Root id="fuse-layout" config={config} className="w-full flex">
+    <Root id="fuse-layout" className="w-full flex" config={config}>
       {config.leftSidePanel.display && <LeftSideLayout1 />}
 
       <div className="flex flex-auto min-w-0">
