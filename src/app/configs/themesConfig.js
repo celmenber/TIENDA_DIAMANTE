@@ -924,7 +924,7 @@ const themesConfig = {
     status: {
       danger: 'orange',
     },
-  },
+  }
 };
 
 export default themesConfig;

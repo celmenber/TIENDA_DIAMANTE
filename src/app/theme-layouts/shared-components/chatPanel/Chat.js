@@ -143,7 +143,7 @@ function Chat(props) {
                       key={i}
                       className={clsx(
                         'flex flex-col grow-0 shrink-0 items-start justify-end relative px-16 pb-4',
-                        item.contactId === user.ID_USER ? 'me' : 'contact',
+                        item.contactId === user.id ? 'me' : 'contact',
                         { 'first-of-group': isFirstMessageOfGroup(item, i) },
                         { 'last-of-group': isLastMessageOfGroup(item, i) },
                         i + 1 === chat.length && 'pb-72'
@@ -162,7 +162,7 @@ function Chat(props) {
                   );
                 })
               : null;
-          }, [chat, user?.ID_USER])}
+          }, [chat, user?.id])}
         </div>
 
         {chat?.length === 0 && (

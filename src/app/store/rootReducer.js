@@ -2,11 +2,13 @@ import { combineReducers } from '@reduxjs/toolkit';
 import fuse from './fuse';
 import i18n from './i18nSlice';
 import user from './userSlice';
-import { UsuarioReducer } from '../reducers';
-import { CartReducer } from '../reducers/cartReducer';
-import { ProductReducer } from '../reducers/productsReducer';
-import { ClientReducer } from '../reducers/clientsReducer';
-import { SellReducer } from '../reducers/sellReducer';
+import {
+  UsuarioReducer,
+  CartReducer,
+  ClientReducer,
+  SellReducer,
+  ProductReducer,
+} from '../reducers';
 
 const createReducer = (asyncReducers) => (state, action) => {
   const combinedReducer = combineReducers({
@@ -18,14 +20,14 @@ const createReducer = (asyncReducers) => (state, action) => {
     cart: CartReducer,
     products: ProductReducer,
     clients: ClientReducer,
-    sell: SellReducer
+    sell: SellReducer,
   });
 
   /*
-	Reset the redux store when user logged out
-	 */
+  Reset the redux store when user logged out
+   */
   if (action.type === 'user/userLoggedOut') {
-    // state = undefined;
+    state = undefined;
   }
 
   return combinedReducer(state, action);

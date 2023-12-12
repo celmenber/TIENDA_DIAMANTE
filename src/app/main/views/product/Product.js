@@ -1,26 +1,26 @@
-import FuseLoading from "@fuse/core/FuseLoading";
-import FusePageCarded from "@fuse/core/FusePageCarded";
-import { useDeepCompareEffect } from "@fuse/hooks";
-import Button from "@mui/material/Button";
-import Tab from "@mui/material/Tab";
-import Tabs from "@mui/material/Tabs";
-import Typography from "@mui/material/Typography";
-import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { Link, useParams } from "react-router-dom";
-import _ from "@lodash";
-import { FormProvider, useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
-import * as yup from "yup";
-import useThemeMediaQuery from "@fuse/hooks/useThemeMediaQuery";
-import ProductHeader from "./ProductHeader";
-import BasicInfoTab from "./tabs/BasicInfoTab";
-import InventoryTab from "./tabs/InventoryTab";
-import PricingTab from "./tabs/PricingTab";
-import ProductImagesTab from "./tabs/ProductImagesTab";
-import ShippingTab from "./tabs/ShippingTab";
+import FuseLoading from '@fuse/core/FuseLoading';
+import FusePageCarded from '@fuse/core/FusePageCarded';
+import { useDeepCompareEffect } from '@fuse/hooks';
+import Button from '@mui/material/Button';
+import Tab from '@mui/material/Tab';
+import Tabs from '@mui/material/Tabs';
+import Typography from '@mui/material/Typography';
+import { motion } from 'framer-motion';
+import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { Link, useParams } from 'react-router-dom';
+import _ from '@lodash';
+import { FormProvider, useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
+import * as yup from 'yup';
+import useThemeMediaQuery from '@fuse/hooks/useThemeMediaQuery';
 import { useProduct } from 'src/app/hooks';
+import ProductHeader from './ProductHeader';
+import BasicInfoTab from './tabs/BasicInfoTab';
+import InventoryTab from './tabs/InventoryTab';
+import PricingTab from './tabs/PricingTab';
+import ProductImagesTab from './tabs/ProductImagesTab';
+import ShippingTab from './tabs/ShippingTab';
 
 /**
  * Form Validation Schema
@@ -28,21 +28,21 @@ import { useProduct } from 'src/app/hooks';
 const schema = yup.object().shape({
   name: yup
     .string()
-    .required("You must enter a product name")
-    .min(5, "The product name must be at least 5 characters"),
+    .required('You must enter a product name')
+    .min(5, 'The product name must be at least 5 characters'),
 });
 
 function Product(props) {
-  const { selectProducts } = useProduct()
+  const { selectProducts } = useProduct();
   const state = useSelector((state) => state);
   const dispatch = useDispatch();
-  const isMobile = useThemeMediaQuery((theme) => theme.breakpoints.down("lg"));
+  const isMobile = useThemeMediaQuery((theme) => theme.breakpoints.down('lg'));
   const [product, setProduct] = useState(state.products.selectProduct);
   const routeParams = useParams();
   const [tabValue, setTabValue] = useState(0);
   const [noProduct, setNoProduct] = useState(false);
   const methods = useForm({
-    mode: "onChange",
+    mode: 'onChange',
     defaultValues: {},
     resolver: yupResolver(schema),
   });
@@ -50,9 +50,9 @@ function Product(props) {
   const form = watch();
 
   useEffect(() => {
-    if (routeParams.productoId === "new") {
+    if (routeParams.productoId === 'new') {
       dispatch(newProduct());
-    }else{
+    } else {
       dispatch(getProduct(routeParams.productoId));
     }
     setProduct(state.products.selectProduct);
@@ -60,11 +60,11 @@ function Product(props) {
 
   useDeepCompareEffect(() => {
     function updateProductState() {
-      if (routeParams.productoId === "new") {
+      if (routeParams.productoId === 'new') {
         /**
          * Create New Product data
          */
-        //dispatch(newProduct());
+        // dispatch(newProduct());
       } else if (
         !state.products.selectProduct ||
         state.products.selectProduct === null ||
@@ -98,7 +98,7 @@ function Product(props) {
       /**
        * Reset Product on component unload
        */
-      //dispatch(resetProduct());
+      // dispatch(resetProduct());
       setNoProduct(false);
     };
   }, [dispatch]);
@@ -143,7 +143,7 @@ function Product(props) {
     _.isEmpty(form) ||
     (product &&
       String(routeParams.productoId) !== String(product.id) &&
-      routeParams.productId !== "new")
+      routeParams.productId !== 'new')
   ) {
     return <FuseLoading />;
   }
@@ -160,7 +160,7 @@ function Product(props) {
               textColor="secondary"
               variant="scrollable"
               scrollButtons="auto"
-              classes={{ root: "w-full h-64 border-b-1" }}
+              classes={{ root: 'w-full h-64 border-b-1' }}
             >
               <Tab className="h-64" label="Informacion" />
               <Tab className="h-64" label="Imagenes" />
@@ -169,29 +169,29 @@ function Product(props) {
               <Tab className="h-64" label="Envio" />
             </Tabs>
             <div className="p-16 sm:p-24 max-w-3xl">
-              <div className={tabValue !== 0 ? "hidden" : ""}>
+              <div className={tabValue !== 0 ? 'hidden' : ''}>
                 <BasicInfoTab />
               </div>
 
-              <div className={tabValue !== 1 ? "hidden" : ""}>
+              <div className={tabValue !== 1 ? 'hidden' : ''}>
                 <ProductImagesTab />
               </div>
 
-              <div className={tabValue !== 2 ? "hidden" : ""}>
+              <div className={tabValue !== 2 ? 'hidden' : ''}>
                 <PricingTab />
               </div>
 
-              <div className={tabValue !== 3 ? "hidden" : ""}>
+              <div className={tabValue !== 3 ? 'hidden' : ''}>
                 <InventoryTab />
               </div>
 
-              <div className={tabValue !== 4 ? "hidden" : ""}>
+              <div className={tabValue !== 4 ? 'hidden' : ''}>
                 <ShippingTab />
               </div>
             </div>
           </>
         }
-        scroll={isMobile ? "normal" : "content"}
+        scroll={isMobile ? 'normal' : 'content'}
       />
     </FormProvider>
   );

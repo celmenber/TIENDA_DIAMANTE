@@ -6,7 +6,7 @@ import { selectUserShortcuts, updateUserShortcuts } from 'app/store/userSlice';
 function NavigationShortcuts(props) {
   const { variant, className } = props;
   const dispatch = useDispatch();
-  //const shortcuts = useSelector(selectUserShortcuts) || [];
+  const shortcuts = useSelector(selectUserShortcuts) || [];
   const navigation = useSelector(selectFlatNavigation);
 
   function handleShortcutsChange(newShortcuts) {
@@ -18,8 +18,8 @@ function NavigationShortcuts(props) {
       className={className}
       variant={variant}
       navigation={navigation}
-      //shortcuts={shortcuts}
-      //onChange={handleShortcutsChange}
+      shortcuts={shortcuts}
+      onChange={handleShortcutsChange}
     />
   );
 }

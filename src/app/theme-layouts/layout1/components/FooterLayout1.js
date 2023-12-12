@@ -5,6 +5,8 @@ import { memo } from 'react';
 import { useSelector } from 'react-redux';
 import { selectFooterTheme } from 'app/store/fuse/settingsSlice';
 import clsx from 'clsx';
+import DocumentationButton from '../../shared-components/DocumentationButton';
+import PurchaseButton from '../../shared-components/PurchaseButton';
 
 function FooterLayout1(props) {
   const footerTheme = useSelector(selectFooterTheme);
@@ -23,7 +25,10 @@ function FooterLayout1(props) {
         }}
       >
         <Toolbar className="min-h-48 md:min-h-64 px-8 sm:px-12 py-0 flex items-center overflow-x-auto">
-          Footer
+          <div className="flex grow shrink-0">
+            <PurchaseButton className="mx-4" />
+            <DocumentationButton className="mx-4" />
+          </div>
         </Toolbar>
       </AppBar>
     </ThemeProvider>

@@ -5,7 +5,7 @@ import { matchRoutes } from 'react-router-dom';
 import withRouter from '@fuse/core/withRouter';
 import history from '@history';
 
-let loginRedirectUrl = "/";
+let loginRedirectUrl = null;
 
 class FuseAuthorization extends Component {
   constructor(props, context) {

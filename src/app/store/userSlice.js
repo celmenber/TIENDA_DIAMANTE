@@ -11,16 +11,9 @@ export const setUser = createAsyncThunk('user/setUser', async (user, { dispatch,
   /*
     You can redirect the logged-in user to a specific route depending on his role
     */
-
   if (user.loginRedirectUrl) {
     settingsConfig.loginRedirectUrl = user.loginRedirectUrl; // for example 'apps/academy'
   }
-
-  /*   if (user.loginRedirectUrl) {
-    settingsConfig.loginRedirectUrl = 'productos'; // for example 'apps/academy'
-  } else {
-    settingsConfig.loginRedirectUrl = 'productos';
-  } */
 
   return user;
 });
@@ -89,8 +82,13 @@ export const updateUserData = (user) => async (dispatch, getState) => {
 };
 
 const initialState = {
-  role: null,
-  data: null,
+  role: [], // guest
+  data: {
+    displayName: null,
+    photoURL: null,
+    email: null,
+    shortcuts: [],
+  },
 };
 
 const userSlice = createSlice({

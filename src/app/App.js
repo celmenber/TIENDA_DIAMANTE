@@ -1,7 +1,5 @@
-
-import '@mock-api';
-import {Provider} from 'react-redux'
-import store from './store'
+/* eslint-disable import/extensions */
+ // import '@mock-api';
 import BrowserRouter from '@fuse/core/BrowserRouter';
 import FuseLayout from '@fuse/core/FuseLayout';
 import FuseTheme from '@fuse/core/FuseTheme';
@@ -45,16 +43,13 @@ const App = () => {
   const langDirection = useSelector(selectCurrentLanguageDirection);
   const mainTheme = useSelector(selectMainTheme);
 
-  // Cambio
-
   return (
-    <Provider store = {store}>
     <CacheProvider value={createCache(emotionCacheOptions[langDirection])}>
       <FuseTheme theme={mainTheme} direction={langDirection}>
         <AuthProvider>
           <BrowserRouter>
             <FuseAuthorization
-              userRole={user.ID_ROLL === "1" && "admin"}
+              userRole={user.role}
               loginRedirectUrl={settingsConfig.loginRedirectUrl}
             >
               <SnackbarProvider
@@ -74,7 +69,6 @@ const App = () => {
         </AuthProvider>
       </FuseTheme>
     </CacheProvider>
-    </Provider>
   );
 };
 

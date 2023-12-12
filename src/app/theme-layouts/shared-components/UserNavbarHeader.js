@@ -27,30 +27,27 @@ const Root = styled('div')(({ theme }) => ({
 
 function UserNavbarHeader(props) {
   const user = useSelector(selectUser);
-  
+
   return (
     <Root className="user relative flex flex-col items-center justify-center p-16 pb-14 shadow-0">
       <div className="flex items-center justify-center mb-24">
-        {user.NOMBRES !== undefined ?
-          <Avatar
-            sx={{
-              backgroundColor: 'background.paper',
-              color: 'text.secondary',
-            }}
-            className="avatar text-32 font-bold w-96 h-96"
-            src={user?.AVATAR}
-            alt={user?.NOMBRES}
-          >
-            {user.NOMBRES.charAt(0)}
-          </Avatar>: null
-        }
-       
+        <Avatar
+          sx={{
+            backgroundColor: 'background.paper',
+            color: 'text.secondary',
+          }}
+          className="avatar text-32 font-bold w-96 h-96"
+          src={user.data.photoURL}
+          alt={user.data.displayName}
+        >
+          {user.data.displayName.charAt(0)}
+        </Avatar>
       </div>
       <Typography className="username text-14 whitespace-nowrap font-medium">
-        {user.NOMBRES}
+        {user.data.displayName}
       </Typography>
       <Typography className="email text-13 whitespace-nowrap font-medium" color="text.secondary">
-        {user.USERNAME}
+        {user.data.email}
       </Typography>
     </Root>
   );

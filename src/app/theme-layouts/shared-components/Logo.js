@@ -24,7 +24,7 @@ function Logo() {
         className="badge flex items-center py-4 px-8 mx-8 rounded"
         style={{ backgroundColor: '#121212', color: '#61DAFB' }}
       >
-        <span className="react-text text-12 mx-4">Tienda Diamante</span>
+        <span className="text-14 mx-4">Tienda Diamante</span>
       </div>
     </Root>
   );

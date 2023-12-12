@@ -31,8 +31,12 @@ export const changeFuseTheme = (theme) => (dispatch, getState) => {
 };
 
 function getInitialSettings() {
+  const USER_ROL = window.localStorage.getItem('RollUser');
+  const layautRoll = USER_ROL === 'administrador' ? 'layout1' : 'layout2';
+  console.log('getInitialSettings', USER_ROL);
+
   const defaultLayoutStyle =
-    settingsConfig.layout && settingsConfig.layout.style ? settingsConfig.layout.style : 'layout1';
+    settingsConfig.layout && settingsConfig.layout.style ? settingsConfig.layout.style : layautRoll;
   const layout = {
     style: defaultLayoutStyle,
     config: themeLayoutConfigs[defaultLayoutStyle].defaults,

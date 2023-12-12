@@ -6,19 +6,19 @@ import Tabs from '@mui/material/Tabs';
 import Typography from '@mui/material/Typography';
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
 import { useDeepCompareEffect } from '@fuse/hooks';
 import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
 import useThemeMediaQuery from '@fuse/hooks/useThemeMediaQuery';
+import { useCart, useClient } from 'src/app/hooks';
 import InvoiceTab from './tabs/InvoiceTab';
 import OrderDetailsTab from './tabs/OrderDetailsTab';
 import ProductsTab from './tabs/ProductsTab';
-import { useCart, useClient } from 'src/app/hooks';
 
 function Order(props) {
-  const {selectClient} = useClient()
-  const {selectCart} = useCart()
+  const { selectClient } = useClient();
+  const { selectCart } = useCart();
   const dispatch = useDispatch();
   const theme = useTheme();
   const isMobile = useThemeMediaQuery((_theme) => _theme.breakpoints.down('lg'));
@@ -29,16 +29,16 @@ function Order(props) {
   const [noOrder, setNoOrder] = useState(false);
   const client = order.clientId && selectClient(order.clientId);
   useDeepCompareEffect(() => {
-    /*dispatch(getOrder(orderId)).then((action) => {
+    /* dispatch(getOrder(orderId)).then((action) => {
       if (!action.payload) {
         setNoOrder(true);
       }
-    });*/
+    }); */
   }, [dispatch, routeParams]);
 
   useEffect(() => {
     return () => {
-      //dispatch(resetOrder());
+      // dispatch(resetOrder());
       setNoOrder(false);
     };
   }, [dispatch]);
@@ -57,13 +57,7 @@ function Order(props) {
         <Typography color="text.secondary" variant="h5">
           Esta orden no existe!
         </Typography>
-        <Button
-          className="mt-24"
-          component={Link}
-          variant="outlined"
-          to="/ordenes"
-          color="inherit"
-        >
+        <Button className="mt-24" component={Link} variant="outlined" to="/ordenes" color="inherit">
           Ver más ordenes
         </Button>
       </motion.div>
@@ -104,7 +98,7 @@ function Order(props) {
                 {`Orden ${order.id}`}
               </Typography>
               <Typography variant="caption" className="font-medium">
-                {client ? `De ${client.name}` : ""}
+                {client ? `De ${client.name}` : ''}
               </Typography>
             </motion.div>
           </div>
@@ -127,8 +121,8 @@ function Order(props) {
           </Tabs>
           {order && (
             <div className="p-16 sm:p-24 max-w-3xl w-full">
-              {tabValue === 0 && <OrderDetailsTab orderId={order.id}/>}
-              {tabValue === 1 && <ProductsTab orderId={order.id}/>}
+              {tabValue === 0 && <OrderDetailsTab orderId={order.id} />}
+              {tabValue === 1 && <ProductsTab orderId={order.id} />}
               {tabValue === 2 && <InvoiceTab order={order} />}
             </div>
           )}

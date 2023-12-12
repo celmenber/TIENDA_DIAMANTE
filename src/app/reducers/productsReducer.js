@@ -1,46 +1,42 @@
-import TYPES from "../type/ProductType";
-import productsDataConfig from "../main/views/products/productsDataConfig";
-import _ from "lodash";
-import productConfig from "../main/views/products/productConfig";
-import productCategoryConfig from "../main/views/products/ProductCategories/productCategoryConfig";
+/* eslint-disable no-case-declarations */
+/* eslint-disable import/prefer-default-export */
+/* eslint-disable no-unused-expressions */
+/* eslint-disable import/extensions */
+import _ from 'lodash';
+import TYPES from '../type/ProductType';
+import productConfig from '../main/views/products/productConfig';
 
 const initialState = {
   loaded: false,
   items: [],
   selectProduct: null,
-  searchText: "",
+  searchText: '',
   categories: [],
   baseCategories: [],
 };
 
 export const ProductReducer = (state = initialState, action) => {
-  //const dispatch = useDispatch()
+  // const dispatch = useDispatch()
   switch (action.type) {
     case TYPES.SET_PRODUCTS:
       return {
         ...state,
         items: action.payload,
-        loaded: true
-      }
+        loaded: true,
+      };
     case TYPES.CREATE_PRODUCT:
-      !state.items.find(
-        (item) => String(item.id) === String(action.payload.id)
-      ) && state.items.push(action.payload);
+      !state.items.find((item) => String(item.id) === String(action.payload.id)) &&
+        state.items.push(action.payload);
       return state;
     case TYPES.DELETE_PRODUCT:
-      _.remove(
-        state.items,
-        (item) => String(item.id) === String(action.payload.id)
-      );
+      _.remove(state.items, (item) => String(item.id) === String(action.payload.id));
       return state;
     case TYPES.EDIT_PRODUCT:
       return {
-        ...state
+        ...state,
       };
     case TYPES.GET_PRODUCT:
-      const product = state.items.find(
-        (item) => String(item.id) === String(action.payload)
-      );
+      const product = state.items.find((item) => String(item.id) === String(action.payload));
       state.selectProduct = product;
       return {
         ...state,

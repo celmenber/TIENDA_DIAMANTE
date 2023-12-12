@@ -3,9 +3,7 @@ import axios from 'axios';
 const API_URL = process.env.REACT_APP_API_URL;
 
 const stringTOKEN =
-  localStorage.getItem('jwt_access_token') !== undefined
-    ? localStorage.getItem('jwt_access_token')
-    : '';
+  localStorage.getItem('access_token') !== undefined ? localStorage.getItem('access_token') : '';
 
 const TOKEN = `Bearer ${stringTOKEN}`;
 
@@ -13,7 +11,7 @@ const AXIOS = axios.create({
   baseURL: API_URL,
 });
 
-/* AXIOS.interceptors.request.use(
+AXIOS.interceptors.request.use(
   (config) => {
     config.headers = {
       ...config.headers,
@@ -24,6 +22,6 @@ const AXIOS = axios.create({
   (error) => {
     return Promise.reject(error);
   }
-); */
+);
 
 export default AXIOS;

@@ -1,7 +1,7 @@
-import { useDispatch } from 'react-redux';
 import List from '@mui/material/List';
 import { styled } from '@mui/material/styles';
 import clsx from 'clsx';
+import { useDispatch } from 'react-redux';
 import FuseNavItem from '../FuseNavItem';
 
 const StyledList = styled(List)(({ theme }) => ({

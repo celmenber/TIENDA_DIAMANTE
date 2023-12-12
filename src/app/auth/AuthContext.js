@@ -12,7 +12,6 @@ function AuthProvider({ children }) {
   const [isAuthenticated, setIsAuthenticated] = useState(undefined);
   const [waitAuthCheck, setWaitAuthCheck] = useState(true);
   const dispatch = useDispatch();
-  // const estate = useSelector((state) => state);
 
   useEffect(() => {
     jwtService.on('onAutoLogin', () => {
@@ -32,7 +31,7 @@ function AuthProvider({ children }) {
     });
 
     jwtService.on('onLogin', (user) => {
-      success(user, 'Usuario Registrado');
+      success(user, 'Autenticado o Registrado');
     });
 
     jwtService.on('onLogout', () => {
@@ -60,7 +59,6 @@ function AuthProvider({ children }) {
 
       Promise.all([
         dispatch(setUser(user)),
-
         // You can receive data in here before app initialization
       ]).then((values) => {
         setWaitAuthCheck(false);

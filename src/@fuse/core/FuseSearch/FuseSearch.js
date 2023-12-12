@@ -1,4 +1,3 @@
-import { memo, useEffect, useReducer, useRef } from 'react';
 import ClickAwayListener from '@mui/material/ClickAwayListener';
 import { styled } from '@mui/material/styles';
 import IconButton from '@mui/material/IconButton';
@@ -14,6 +13,7 @@ import match from 'autosuggest-highlight/match';
 import parse from 'autosuggest-highlight/parse';
 import clsx from 'clsx';
 import _ from '@lodash';
+import { memo, useEffect, useReducer, useRef } from 'react';
 import Autosuggest from 'react-autosuggest';
 import withRouter from '@fuse/core/withRouter';
 import FuseSvgIcon from '../FuseSvgIcon';

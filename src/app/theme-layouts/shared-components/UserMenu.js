@@ -1,17 +1,15 @@
-import { useState } from 'react';
+import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import MenuItem from '@mui/material/MenuItem';
 import Popover from '@mui/material/Popover';
 import Typography from '@mui/material/Typography';
-
+import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Link, NavLink } from 'react-router-dom';
 import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
 import { selectUser } from 'app/store/userSlice';
-
-import Avatar from '@mui/material/Avatar';
 
 function UserMenu(props) {
   const user = useSelector(selectUser);
@@ -26,8 +24,6 @@ function UserMenu(props) {
     setUserMenu(null);
   };
 
-  console.log(user)
-
   return (
     <>
       <Button
@@ -37,16 +33,19 @@ function UserMenu(props) {
       >
         <div className="hidden md:flex flex-col mx-4 items-end">
           <Typography component="span" className="font-semibold flex">
-            {user.NOMBRES}
+            {user.data.displayName}
           </Typography>
           <Typography className="text-11 font-medium capitalize" color="text.secondary">
-            {user.USER_ROL}
-            {(!user.ID_ROLL || (Array.isArray(user.ID_ROLL) && user.ID_ROLL.length === 0)) &&
-              'Guest'}
+            {user.role.toString()}
+            {(!user.role || (Array.isArray(user.role) && user.role.length === 0)) && 'Guest'}
           </Typography>
         </div>
 
-       {/*  <Avatar className="md:mx-4">{user.NOMBRES[0]}</Avatar> */}
+        {user.data.photoURL ? (
+          <Avatar className="md:mx-4" alt="user photo" src={user.data.photoURL} />
+        ) : (
+          <Avatar className="md:mx-4">{user.data.displayName[0]}</Avatar>
+        )}
       </Button>
 
       <Popover
@@ -65,7 +64,7 @@ function UserMenu(props) {
           paper: 'py-8',
         }}
       >
-        {!user.ID_ROLL || user.ID_ROLL.length === 0 ? (
+        {!user.role || user.role.length === 0 ? (
           <>
             <MenuItem component={Link} to="/sign-in" role="button">
               <ListItemIcon className="min-w-40">
@@ -82,17 +81,11 @@ function UserMenu(props) {
           </>
         ) : (
           <>
-            <MenuItem component={Link} to="/user/profile" onClick={userMenuClose} role="button">
+            <MenuItem component={Link} to="/apps/profile" onClick={userMenuClose} role="button">
               <ListItemIcon className="min-w-40">
                 <FuseSvgIcon>heroicons-outline:user-circle</FuseSvgIcon>
               </ListItemIcon>
-              <ListItemText primary="My Profile" />
-            </MenuItem>
-            <MenuItem component={Link} to="/apps/mailbox" onClick={userMenuClose} role="button">
-              <ListItemIcon className="min-w-40">
-                <FuseSvgIcon>heroicons-outline:mail-open</FuseSvgIcon>
-              </ListItemIcon>
-              <ListItemText primary="Inbox" />
+              <ListItemText primary="Mi Perfil" />
             </MenuItem>
             <MenuItem
               component={NavLink}
@@ -104,7 +97,7 @@ function UserMenu(props) {
               <ListItemIcon className="min-w-40">
                 <FuseSvgIcon>heroicons-outline:logout</FuseSvgIcon>
               </ListItemIcon>
-              <ListItemText primary="Sign out" />
+              <ListItemText primary="Desconectar" />
             </MenuItem>
           </>
         )}

@@ -13,7 +13,6 @@ import Paper from '@mui/material/Paper';
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { showMessage } from 'app/store/fuse/messageSlice';
-import { CircularProgress } from '@mui/material';
 import jwtService from '../../auth/services/jwtService';
 
 /**
@@ -30,7 +29,7 @@ const schema = yup.object().shape({
 const defaultValues = {
   email: '',
   password: '',
-  remember: true,
+  // remember: true,
 };
 
 function SignInPage() {
@@ -45,12 +44,29 @@ function SignInPage() {
   const { isValid, dirtyFields, errors } = formState;
 
   useEffect(() => {
-    setValue('email', 'correo@gmail.com', {
+    setValue('email', '', {
       shouldDirty: true,
       shouldValidate: true,
     });
-    setValue('password', 'admin', { shouldDirty: true, shouldValidate: true });
+    setValue('password', '', { shouldDirty: true, shouldValidate: true });
   }, [setValue]);
+
+  /*   function onSubmit({ email, password }) {
+    jwtService
+      .signInWithEmailAndPassword(email, password)
+      .then((user) => {
+        console.log(user);
+        // No need to do anything, user data will be set at app/auth/AuthContext
+      })
+      .catch((_errors) => {
+        _errors.forEach((error) => {
+          setError(error.type, {
+            type: 'manual',
+            message: error.message,
+          });
+        });
+      });
+  } */
 
   function onSubmit({ email, password }) {
     setLoading(true);
@@ -85,10 +101,10 @@ function SignInPage() {
     <div className="flex flex-col sm:flex-row items-center md:items-start sm:justify-center md:justify-start flex-1 min-w-0">
       <Paper className="h-full sm:h-auto md:flex md:items-center md:justify-end w-full sm:w-auto md:h-full md:w-1/2 py-8 px-16 sm:p-48 md:p-64 sm:rounded-2xl md:rounded-none sm:shadow md:shadow-none ltr:border-r-1 rtl:border-l-1">
         <div className="w-full max-w-320 sm:w-320 mx-auto sm:mx-0">
-          <img className="w-96" src="assets/images/logo/logo.svg" alt="logo" />
+          <img className="w-48" src="assets/images/logo/logo.svg" alt="logo" />
 
           <Typography className="mt-32 text-4xl font-extrabold tracking-tight leading-tight">
-            Tienda Diamante
+            Tienda Diamantes
           </Typography>
           <form
             name="loginForm"
@@ -104,11 +120,11 @@ function SignInPage() {
                   {...field}
                   className="mb-24"
                   label="Email"
+                  autoFocus
                   type="email"
                   error={!!errors.email}
                   helperText={errors?.email?.message}
                   variant="outlined"
-                  autoFocus
                   required
                   fullWidth
                 />
@@ -142,7 +158,7 @@ function SignInPage() {
               type="submit"
               size="large"
             >
-              {!loading ? 'Inciar Sesión' : <CircularProgress size={26} color="background" />}
+              {loading === true ? 'Iniciando...' : 'Iniciar Sesion'}
             </Button>
           </form>
         </div>

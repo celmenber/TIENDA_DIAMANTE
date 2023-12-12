@@ -7,12 +7,11 @@ import { useDispatch } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import _ from '@lodash';
 import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
-import { removeProduct, saveProduct } from '../cartView/store/productSlice';
-import { deleteProduct } from 'src/app/action/ProductAction';
 import { useProduct } from 'src/app/hooks';
+import { saveProduct } from '../cartView/store/productSlice';
 
 function ProductHeader(props) {
-  const {} = useProduct()
+  // const {} = useProduct();
   const dispatch = useDispatch();
   const methods = useFormContext();
   const { formState, watch, getValues } = methods;
@@ -28,7 +27,7 @@ function ProductHeader(props) {
   }
 
   function handleRemoveProduct() {
-    //dispatch(deleteProduct(watch({id:'id'})));
+    // dispatch(deleteProduct(watch({id:'id'})));
   }
   return (
     <div className="flex flex-col sm:flex-row flex-1 w-full items-center justify-between space-y-8 sm:space-y-0 py-32 px-24 md:px-32">

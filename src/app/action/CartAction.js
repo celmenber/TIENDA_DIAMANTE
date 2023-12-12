@@ -1,4 +1,4 @@
-import TYPES from "../type/CartType";
+import TYPES from '../type/CartType';
 
 export const createCartAction = (Data) => ({
   type: TYPES.CREATE_CART,
@@ -55,8 +55,7 @@ export const setSelectedCartPaymentTypeAction = (Data) => ({
   payload: Data,
 });
 
-export const setSelectedCartClientIdAction = (Data) =>
- ({
+export const setSelectedCartClientIdAction = (Data) => ({
   type: '222',
   payload: Data,
 });
@@ -68,28 +67,26 @@ export const setItemQuantityAction = (Data) => ({
   payload: Data,
 });
 
-export const getDivisasAction = () => {
-  
-}
+export const getDivisasAction = () => {};
 
-export const setOpenDivisasAction = (Data) =>({
+export const setOpenDivisasAction = (Data) => ({
   type: TYPES.SET_OPEN_DIVISAS,
-  payload: Data 
-})
+  payload: Data,
+});
 
 export const setDivisasAction = (Data) => ({
   type: TYPES.SET_DIVISAS,
   payload: Data,
-})
+});
 
 export const addToTotalPayAction = (Data) => ({
   type: TYPES.ADD_TO_TOTAL_PAY,
-  payload: Data
-})
+  payload: Data,
+});
 
 export const setTypeAction = (Data) => ({
   type: TYPES.SET_TYPE,
-  payload: Data
-})
+  payload: Data,
+});
 
 export const reiniciarAction = () => ({ type: TYPES.RESET_PRODUCTS });

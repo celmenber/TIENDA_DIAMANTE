@@ -1,7 +1,5 @@
 /* eslint-disable import/prefer-default-export */
-import AxiosPrivado from 'app/configs/interceptors';
 import { TYPES } from '../type/UsuarioType';
-import jwtServiceConfig from '../auth/services/jwtService/jwtServiceConfig';
 
 const {
   ADD_USUARIO,
@@ -60,9 +58,6 @@ export const UsuarioReducer = (state = initialState, action) => {
         ...state,
         loading: false,
         usuarioeditar: null,
-        /* usuariolista: state.usuariolista.map((U) =>
-          U.UsuarioId === action.payload.UsuarioId ? (U = action.payload) : U
-        ), */
       };
     case ACTIVAR_USUARIO:
       return {
@@ -73,16 +68,8 @@ export const UsuarioReducer = (state = initialState, action) => {
       return {
         ...state,
         loadingactivar: false,
-        /*   usuariolista: state.usuariolista.map((U) =>
-          U.UsuarioId === action.payload.UsuarioId ? (U = action.payload) : U
-        ), */
       };
     case OBTENER_USUARIO:
-      //const user = 
-       // AxiosPrivado.get(jwtServiceConfig.viewUser, (responser) =>{
-
-        //})
-      //console.log(sessionStorage.getItem("jwt_access_token"))
       return {
         ...state,
         loadinglista: action.payload,
