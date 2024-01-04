@@ -187,7 +187,30 @@ const ContactForm = (props) => {
             />
           </div>
         </div>
-
+        <Controller
+          control={control}
+          name="documento"
+          render={({ field }) => (
+            <TextField
+              className="mt-32"
+              {...field}
+              label="documento"
+              placeholder="documento"
+              id="documento"
+              error={!!errors.title}
+              helperText={errors?.title?.message}
+              variant="outlined"
+              fullWidth
+              InputProps={{
+                startAdornment: (
+                  <InputAdornment position="start">
+                    <FuseSvgIcon size={20}>heroicons-solid:briefcase</FuseSvgIcon>
+                  </InputAdornment>
+                ),
+              }}
+            />
+          )}
+        />
         <Controller
           control={control}
           name="name"
@@ -195,8 +218,8 @@ const ContactForm = (props) => {
             <TextField
               className="mt-32"
               {...field}
-              label="Name"
-              placeholder="Name"
+              label="Nombres"
+              placeholder="Nombres"
               id="name"
               error={!!errors.name}
               helperText={errors?.name?.message}
@@ -214,12 +237,12 @@ const ContactForm = (props) => {
           )}
         />
 
-        <Controller
+      {/*   <Controller
           control={control}
           name="tags"
           render={({ field: { onChange, value } }) => (
             <Autocomplete
-              multiple
+              // multiple
               id="tags"
               className="mt-32"
               options={tags}
@@ -239,43 +262,40 @@ const ContactForm = (props) => {
               renderInput={(params) => <TextField {...params} label="Tags" placeholder="Tags" />}
             />
           )}
-        />
-
+        /> */}
         <Controller
           control={control}
-          name="title"
+          name="email"
           render={({ field }) => (
             <TextField
               className="mt-32"
               {...field}
-              label="Title"
-              placeholder="Job title"
-              id="title"
-              error={!!errors.title}
-              helperText={errors?.title?.message}
+              label="Email"
+              placeholder="Email"
               variant="outlined"
               fullWidth
+              error={!!errors.email}
+              helperText={errors?.email?.message}
               InputProps={{
                 startAdornment: (
                   <InputAdornment position="start">
-                    <FuseSvgIcon size={20}>heroicons-solid:briefcase</FuseSvgIcon>
+                    <FuseSvgIcon size={20}>heroicons-solid:mail</FuseSvgIcon>
                   </InputAdornment>
                 ),
               }}
             />
           )}
         />
-
         <Controller
           control={control}
-          name="company"
+          name="telefono"
           render={({ field }) => (
             <TextField
               className="mt-32"
               {...field}
-              label="Company"
-              placeholder="Company"
-              id="company"
+              label="Telefono"
+              placeholder="Telefono"
+              id="telefono"
               error={!!errors.company}
               helperText={errors?.company?.message}
               variant="outlined"
@@ -283,14 +303,14 @@ const ContactForm = (props) => {
               InputProps={{
                 startAdornment: (
                   <InputAdornment position="start">
-                    <FuseSvgIcon size={20}>heroicons-solid:office-building</FuseSvgIcon>
+                    <FuseSvgIcon size={20}>heroicons-outline:phone</FuseSvgIcon>
                   </InputAdornment>
                 ),
               }}
             />
           )}
         />
-        <Controller
+{/*         <Controller
           control={control}
           name="emails"
           render={({ field }) => <ContactEmailSelector className="mt-32" {...field} />}
@@ -300,18 +320,18 @@ const ContactForm = (props) => {
           control={control}
           name="phoneNumbers"
           render={({ field }) => <PhoneNumberSelector className="mt-32" {...field} />}
-        />
+        /> */}
 
         <Controller
           control={control}
-          name="address"
+          name="direccion"
           render={({ field }) => (
             <TextField
               className="mt-32"
               {...field}
-              label="Address"
-              placeholder="Address"
-              id="address"
+              label="Direccion"
+              placeholder="Direccion"
+              id="direccion"
               error={!!errors.address}
               helperText={errors?.address?.message}
               variant="outlined"
@@ -340,7 +360,7 @@ const ContactForm = (props) => {
                   {..._props}
                   className="mt-32"
                   id="birthday"
-                  label="Birthday"
+                  label="Cumpleaaños"
                   type="date"
                   InputLabelProps={{
                     shrink: true,
@@ -366,8 +386,8 @@ const ContactForm = (props) => {
             <TextField
               className="mt-32"
               {...field}
-              label="Notes"
-              placeholder="Notes"
+              label="Notas"
+              placeholder="Notas"
               id="notes"
               error={!!errors.notes}
               helperText={errors?.notes?.message}

@@ -71,7 +71,7 @@ const ContactView = () => {
             <div className="flex items-center ml-auto mb-4">
               <Button variant="contained" color="secondary" component={NavLinkAdapter} to="edit">
                 <FuseSvgIcon size={20}>heroicons-outline:pencil-alt</FuseSvgIcon>
-                <span className="mx-8">Edit</span>
+                <span className="mx-8">Editar</span>
               </Button>
             </div>
           </div>
