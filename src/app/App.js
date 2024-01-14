@@ -1,5 +1,5 @@
 /* eslint-disable import/extensions */
-//  import '@mock-api';
+  //import '@mock-api';
 import BrowserRouter from '@fuse/core/BrowserRouter';
 import FuseLayout from '@fuse/core/FuseLayout';
 import FuseTheme from '@fuse/core/FuseTheme';
@@ -13,7 +13,7 @@ import { selectUser } from 'app/store/userSlice';
 import themeLayouts from 'app/theme-layouts/themeLayouts';
 import { selectMainTheme } from 'app/store/fuse/settingsSlice';
 import FuseAuthorization from '@fuse/core/FuseAuthorization';
-import settingsConfig from 'app/configs/settingsConfig';
+import { settingsConfig, settingsConfigV } from 'app/configs/settingsConfig';
 import withAppProviders from './withAppProviders';
 import { AuthProvider } from './auth/AuthContext';
 
@@ -43,6 +43,8 @@ const App = () => {
   const langDirection = useSelector(selectCurrentLanguageDirection);
   const mainTheme = useSelector(selectMainTheme);
 
+  const Configuracion = user.role === 'administrador' ? settingsConfig : settingsConfigV;
+
   return (
     <CacheProvider value={createCache(emotionCacheOptions[langDirection])}>
       <FuseTheme theme={mainTheme} direction={langDirection}>
@@ -50,7 +52,7 @@ const App = () => {
           <BrowserRouter>
             <FuseAuthorization
               userRole={user.role}
-              loginRedirectUrl={settingsConfig.loginRedirectUrl}
+              loginRedirectUrl={Configuracion.loginRedirectUrl}
             >
               <SnackbarProvider
                 maxSnack={5}

@@ -1,8 +1,6 @@
-import FuseNavigation from "@fuse/core/FuseNavigation/FuseNavigation";
+import FuseNavigation from '@fuse/core/FuseNavigation/FuseNavigation';
 import {
-  ButtonGroup,
   ListItem,
-  ListItemButton,
   Typography,
   List,
   Divider,
@@ -11,14 +9,12 @@ import {
   Avatar,
   ListSubheader,
   Box,
-  AppBar,
-  Toolbar,
-} from "@mui/material";
-import CartItem from "./CartItem";
-import { useCart, useClient } from "src/app/hooks";
-import CartInvoiceModal from "../InvoiceModal/CartInvoiceModal";
-import settingsConfig from "app/configs/settingsConfig";
-import { PersonAdd, Receipt } from "@mui/icons-material";
+} from '@mui/material';
+import { useCart, useClient } from 'src/app/hooks';
+import { settingsConfig } from 'app/configs/settingsConfig';
+import { PersonAdd } from '@mui/icons-material';
+import CartInvoiceModal from '../InvoiceModal/CartInvoiceModal';
+import CartItem from './CartItem';
 
 const Cart = () => {
   const { selectSelectedCart: selectedCart, resetProducts } = useCart();
@@ -39,7 +35,7 @@ const Cart = () => {
           />
         ),
         subtitle: `$${item.valueCost}`,
-        type: "group",
+        type: 'group',
       };
     });
 
@@ -48,31 +44,20 @@ const Cart = () => {
       <List className="grid p-0 w-full h-full grid-rows-[min-content_0_auto_min-content]">
         <ListItem color="warning">
           <ListItemAvatar>
-            <Avatar
-              src={
-                selectedCart.clientId &&
-                selectClient(selectedCart.clientId).avatar
-              }
-            >
-              {selectedCart.clientId ? (
-                selectClient(selectedCart.clientId).name[0]
-              ) : (
-                <PersonAdd />
-              )}
+            <Avatar src={selectedCart.clientId && selectClient(selectedCart.clientId).avatar}>
+              {selectedCart.clientId ? selectClient(selectedCart.clientId).name[0] : <PersonAdd />}
             </Avatar>
           </ListItemAvatar>
           <ListItemText>
-            {
-            selectedCart.clientId 
-            ? `${selectClient(selectedCart.clientId).name.slice(0,8)}...` 
-            : "Anonimo"
-            }
+            {selectedCart.clientId
+              ? `${selectClient(selectedCart.clientId).name.slice(0, 8)}...`
+              : 'Anonimo'}
           </ListItemText>
           <ListSubheader>Orden #{selectedCart.id}</ListSubheader>
         </ListItem>
         <Divider />
-        <ListItem className="items-start" sx={{ overflow: "scroll" }}>
-          <FuseNavigation className={"w-full"} navigation={[...itemsInCart]} />
+        <ListItem className="items-start" sx={{ overflow: 'scroll' }}>
+          <FuseNavigation className="w-full" navigation={[...itemsInCart]} />
         </ListItem>
         <ListItem className="p-0 m-0 h-full">
           <Box
@@ -80,9 +65,9 @@ const Cart = () => {
           >
             <Typography variant="h5" className="px-10 pt-10 pb-0 w-full">
               $
-              {selectedCart.total.toLocaleString("es", {
-                style: "currency",
-                currency: "COP",
+              {selectedCart.total.toLocaleString('es', {
+                style: 'currency',
+                currency: 'COP',
               })}
             </Typography>
             <Typography variant="subtitle2" className="px-10 pt-0 pb-10 w-full">

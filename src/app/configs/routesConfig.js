@@ -1,30 +1,31 @@
 import FuseUtils from '@fuse/utils';
 import FuseLoading from '@fuse/core/FuseLoading';
 import { Navigate } from 'react-router-dom';
-import settingsConfig from 'app/configs/settingsConfig';
-// import userInterfaceConfigs from '../main/user-interface/UserInterfaceConfigs';
+import { settingsConfig, settingsConfigV } from 'app/configs/settingsConfig';
 import SignInConfig from '../main/sign-in/SignInConfig';
 import SignOutConfig from '../main/sign-out/SignOutConfig';
 import dashboardsConfigs from '../main/dashboards/dashboardsConfigs';
 import appsConfigs from '../main/apps/appsConfigs';
-// import pagesConfigs from '../main/pages/pagesConfigs';
 import authRoleExamplesConfigs from '../main/auth/authRoleExamplesConfigs';
 
 const routeConfigs = [
   ...appsConfigs,
   ...dashboardsConfigs,
- // ...pagesConfigs,
-  ...authRoleExamplesConfigs,
+  // ...authRoleExamplesConfigs,
   SignOutConfig,
   SignInConfig,
 ];
 
+const USER_ROL = localStorage.getItem('RollUser');
+console.log(USER_ROL)
+const Configuracion = USER_ROL === 'administrador' ? settingsConfig : settingsConfigV;
+
 const routes = [
-  ...FuseUtils.generateRoutesFromConfigs(routeConfigs, settingsConfig.defaultAuth),
+  ...FuseUtils.generateRoutesFromConfigs(routeConfigs, Configuracion.defaultAuth),
   {
     path: '/',
     element: <Navigate to="dashboards/analytics" />,
-    auth: settingsConfig.defaultAuth,
+    auth: Configuracion.defaultAuth,
   },
   {
     path: 'loading',

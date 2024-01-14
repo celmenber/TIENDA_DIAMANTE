@@ -8,7 +8,7 @@ import {
   getParsedQuerySettings,
   mustHaveThemeOptions,
 } from '@fuse/default-settings';
-import settingsConfig from 'app/configs/settingsConfig';
+import { settingsConfig, settingsConfigV } from 'app/configs/settingsConfig';
 import themeLayoutConfigs from 'app/theme-layouts/themeLayoutConfigs';
 import { setUser, updateUserSettings } from 'app/store/userSlice';
 import { darkPaletteText, lightPaletteText } from 'app/configs/themesConfig';
@@ -32,16 +32,22 @@ export const changeFuseTheme = (theme) => (dispatch, getState) => {
 
 function getInitialSettings() {
   const USER_ROL = window.localStorage.getItem('RollUser');
-  const layautRoll = USER_ROL === 'administrador' ? 'layout1' : 'layout2';
-  console.log('getInitialSettings', USER_ROL);
+  // const layautRoll = USER_ROL === 'administrador' ? 'layout1' : 'layout2';
+  const Configuracion = USER_ROL === 'administrador' ? settingsConfig : settingsConfigV;
+
+/*   console.log('getInitialSettings', USER_ROL);
+  console.log('getInitialSettings', Configuracion.layout.style); */
 
   const defaultLayoutStyle =
-    settingsConfig.layout && settingsConfig.layout.style ? settingsConfig.layout.style : layautRoll;
+    Configuracion.layout && Configuracion.layout.style
+      ? Configuracion.layout.style
+      : Configuracion.layout.style;
+
   const layout = {
     style: defaultLayoutStyle,
     config: themeLayoutConfigs[defaultLayoutStyle].defaults,
   };
-  return _.merge({}, defaultSettings, { layout }, settingsConfig, getParsedQuerySettings());
+  return _.merge({}, defaultSettings, { layout }, Configuracion, getParsedQuerySettings());
 }
 
 export function generateSettings(_defaultSettings, _newSettings) {

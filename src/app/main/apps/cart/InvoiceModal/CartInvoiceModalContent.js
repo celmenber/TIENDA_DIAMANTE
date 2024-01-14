@@ -1,5 +1,5 @@
 import { CardContent, Divider, List, ListItem, Typography } from '@mui/material';
-import settingsConfig from 'app/configs/settingsConfig';
+import { settingsConfig, settingsConfigV } from 'app/configs/settingsConfig';
 import CartInvoiceClientSelector from './cartInvoiceModalClientSect/CartInvoiceClientSelector';
 import CartInvoiceModalPayment from './cartInvoiceModalPaymentSect/CartInvoiceModalPayment';
 import CartInvoiceModalChange from './cartInvoiceModalPaymentSect/CartInvoiceModalChange';
