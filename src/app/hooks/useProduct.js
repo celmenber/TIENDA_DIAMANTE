@@ -1,4 +1,5 @@
-import { useDispatch, useSelector } from "react-redux";
+/* eslint-disable import/prefer-default-export */
+import { useDispatch, useSelector } from 'react-redux';
 import {
   getCategoriesAction,
   getProductAction,
@@ -6,11 +7,11 @@ import {
   setCategoriesAction,
   setProductsAction,
   setProductsSearchTextAction,
-} from "../action/ProductAction";
+} from '../action/ProductAction';
 
 export const useProduct = () => {
   const dispatch = useDispatch();
-  // ACTIONS
+  // ACTIONS PROPIEADADES
   const setProducts = (Data) => dispatch(setProductsAction(Data));
   const getProducts = (Data) => dispatch(getProductAction(Data));
   const getCategories = (Data) => dispatch(getCategoriesAction(Data));
@@ -19,11 +20,18 @@ export const useProduct = () => {
   const setProductsSearchText = (Data) => dispatch(setProductsSearchTextAction(Data));
 
   // SELECTORS
-  const selectProducts = useSelector((state) => state.products.items);
-  const selectProductsSearchText = useSelector(state => state.products.searchText);
+  const {
+    selectProducts,
+    selectProductsSearchText,
+    selectCategories,
+    selectBaseCategories,
+    selectProductLoaded,
+  } = useSelector((state) => state.products);
+
+  /*  const selectProductsSearchText = useSelector((state) => state.products.searchText);
   const selectCategories = useSelector((state) => state.products.categories);
   const selectBaseCategories = useSelector((state) => state.products.baseCategories);
-  const selectProductLoaded = useSelector((state)=>state.products.loaded);
+  const selectProductLoaded = useSelector((state) => state.products.loaded); */
   return {
     getCategories,
     setBaseCategories,
@@ -35,6 +43,6 @@ export const useProduct = () => {
     selectBaseCategories,
     selectProductLoaded,
     selectProducts,
-    selectProductsSearchText
+    selectProductsSearchText,
   };
 };

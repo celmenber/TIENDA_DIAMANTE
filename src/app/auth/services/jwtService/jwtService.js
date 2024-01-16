@@ -5,7 +5,7 @@ import jwtServiceConfig from './jwtServiceConfig';
 
 /* eslint-disable camelcase */
 
-const baseURL = process.env.REACT_APP_API_URL;
+const baseURL = `${process.env.REACT_APP_API_URL}/api`;
 
 class JwtService extends FuseUtils.EventEmitter {
   init() {
@@ -50,6 +50,7 @@ class JwtService extends FuseUtils.EventEmitter {
 
   signInWithEmailAndPassword = (email, password) => {
     const error = [];
+    console.log(`${baseURL}/${jwtServiceConfig.signIn}`);
     return new Promise((resolve, reject) => {
       axios
         .post(`${baseURL}/${jwtServiceConfig.signIn}`, {

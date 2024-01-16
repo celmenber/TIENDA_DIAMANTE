@@ -33,11 +33,11 @@ const schema = yup.object().shape({
 });
 
 function Product(props) {
-  const { selectProducts } = useProduct();
-  const state = useSelector((state) => state);
+  const { selectProducts, getProducts } = useProduct();
+  const estado = useSelector((state) => state);
   const dispatch = useDispatch();
   const isMobile = useThemeMediaQuery((theme) => theme.breakpoints.down('lg'));
-  const [product, setProduct] = useState(state.products.selectProduct);
+  const [product, setProduct] = useState(estado.products.selectProduct);
   const routeParams = useParams();
   const [tabValue, setTabValue] = useState(0);
   const [noProduct, setNoProduct] = useState(false);
@@ -55,7 +55,7 @@ function Product(props) {
     } else {
       dispatch(getProduct(routeParams.productoId));
     }
-    setProduct(state.products.selectProduct);
+    setProduct(estado.products.selectProduct);
   }, [dispatch, routeParams, setProduct]);
 
   useDeepCompareEffect(() => {
@@ -66,17 +66,16 @@ function Product(props) {
          */
         // dispatch(newProduct());
       } else if (
-        !state.products.selectProduct ||
-        state.products.selectProduct === null ||
-        state.products.selectProduct === {} ||
-        state.products.selectProduct === undefined
+        !estado.products.selectProduct ||
+        estado.products.selectProduct === null ||
+        estado.products.selectProduct === undefined
       ) {
         setNoProduct(true);
       } else {
         /**
          * Get Product data
          */
-        dispatch(getProduct(routeParams.productoId));
+        dispatch(getProducts(routeParams.productoId));
       }
     }
 
