@@ -1,8 +1,8 @@
 import ContactsAppConfig from './contacts/ContactsAppConfig';
 import HelpCenterAppConfig from './help-center/HelpCenterAppConfig';
 import ProfileAppConfig from './profile/profileAppConfig';
+import ProvedorAppConfig from './provedor/ProvedorAppConfig';
 
-// import AcademyAppConfig from './academy/AcademyAppConfig';
 // import CalendarAppConfig from './calendar/CalendarAppConfig';
 // import ChatAppConfig from './chat/ChatAppConfig';
 // import ECommerceAppConfig from './e-commerce/ECommerceAppConfig';
@@ -15,6 +15,7 @@ const appsConfigs = [
   HelpCenterAppConfig,
   ProfileAppConfig,
   ContactsAppConfig,
+  ProvedorAppConfig,
 
   /* FileManagerAppConfig,
    CalendarAppConfig,

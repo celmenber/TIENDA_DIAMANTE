@@ -138,10 +138,10 @@ const navigationConfig = [
         icon: 'heroicons-outline:shopping-cart',
         children: [
           {
-            id: 'apps.help-center.home',
+            id: 'apps.provedor.home',
             title: 'Proveedor',
             type: 'item',
-            url: '/apps/help-center',
+            url: '/apps/provedor',
             end: true,
           },
           {
@@ -157,12 +157,12 @@ const navigationConfig = [
             type: 'item',
             url: '/apps/help-center/faqs',
           },
-          {
-            id: 'apps.help-center.guides',
+          /*  {
+             id: 'apps.help-center.guides',
             title: 'Guides',
             type: 'item',
             url: '/apps/help-center/guides',
-          },
+          }, */
         ],
       },
       {
