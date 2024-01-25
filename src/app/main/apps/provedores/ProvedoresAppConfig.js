@@ -1,8 +1,8 @@
 import { lazy } from 'react';
-import ProvedorView from './contact/ProvedorView';
-import ProvedorForm from './contact/ProvedorForm';
+import ContactView from './provedor/ProvedorView';
+import ContactForm from './provedor/ContactForm';
 
-const ProvedorApp = lazy(() => import('./ProvedorApp'));
+const ContactsApp = lazy(() => import('./ProvedoresApp'));
 
 const ContactsAppConfig = {
   settings: {
@@ -12,16 +12,16 @@ const ContactsAppConfig = {
   },
   routes: [
     {
-      path: 'apps/provedor',
-      element: <ProvedorApp />,
+      path: 'apps/provedores',
+      element: <ContactsApp />,
       children: [
         {
           path: ':id',
-          element: <ProvedorView />,
+          element: <ContactView />,
         },
         {
           path: ':id/edit',
-          element: <ProvedorForm />,
+          element: <ContactForm />,
         },
       ],
     },

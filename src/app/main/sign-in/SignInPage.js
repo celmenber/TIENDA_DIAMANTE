@@ -12,7 +12,6 @@ import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { showMessage } from 'app/store/fuse/messageSlice';
 import jwtService from '../../auth/services/jwtService';
 
 /**
@@ -51,30 +50,12 @@ function SignInPage() {
     setValue('password', '', { shouldDirty: true, shouldValidate: true });
   }, [setValue]);
 
-  /*   function onSubmit({ email, password }) {
-    jwtService
-      .signInWithEmailAndPassword(email, password)
-      .then((user) => {
-        console.log(user);
-        // No need to do anything, user data will be set at app/auth/AuthContext
-      })
-      .catch((_errors) => {
-        _errors.forEach((error) => {
-          setError(error.type, {
-            type: 'manual',
-            message: error.message,
-          });
-        });
-      });
-  } */
-
   function onSubmit({ email, password }) {
     setLoading(true);
-    jwtService
-      .signInWithEmailAndPassword(email, password)
-      .then((user) => {
-        setLoading(false);
-        user.error &&
+    jwtService.signInWithEmailAndPassword(email, password).then((user) => {
+      setLoading(false);
+      console.log(user);
+      /* user.error &&
           dispatch(
             showMessage({
               anchorOrigin: {
@@ -84,17 +65,18 @@ function SignInPage() {
               message: user.error.message,
               variant: 'error',
             })
-          );
-        // No need to do anything, user data will be set at app/auth/AuthContext
-      })
-      .catch((_errors) => {
+          ); */
+      // No need to do anything, user data will be set at app/auth/AuthContext
+    });
+    /* .catch((_errors) => {
+        setLoading(false);
         _errors.forEach((error) => {
           setError(error.type, {
             type: 'manual',
             message: error.message,
           });
         });
-      });
+      }); */
   }
 
   return (

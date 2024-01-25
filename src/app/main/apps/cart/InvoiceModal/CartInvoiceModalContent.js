@@ -1,10 +1,13 @@
 import { CardContent, Divider, List, ListItem, Typography } from '@mui/material';
-import { settingsConfig, settingsConfigV } from 'app/configs/settingsConfig';
+import settingsConfigA from 'app/configs/settingsConfig';
+import settingsConfigV from 'app/configs/settingsConfigV';
 import CartInvoiceClientSelector from './cartInvoiceModalClientSect/CartInvoiceClientSelector';
 import CartInvoiceModalPayment from './cartInvoiceModalPaymentSect/CartInvoiceModalPayment';
 import CartInvoiceModalChange from './cartInvoiceModalPaymentSect/CartInvoiceModalChange';
 
 const CartInvoiceModalContent = ({ selectedCart }) => {
+  const USER_ROL = window.localStorage.getItem('RollUser');
+  const Configuracion = USER_ROL === 'administrador' ? settingsConfigA : settingsConfigV;
   return (
     <CardContent>
       <List>
@@ -19,7 +22,7 @@ const CartInvoiceModalContent = ({ selectedCart }) => {
         </ListItem>
         <ListItem
           secondaryAction={
-            <Typography color={settingsConfig.theme.main.palette.text.secondary} variant="h6">
+            <Typography color={Configuracion.theme.main.palette.text.secondary} variant="h6">
               #{selectedCart.id}
             </Typography>
           }
@@ -51,7 +54,7 @@ const CartInvoiceModalContent = ({ selectedCart }) => {
           secondaryAction={
             <Typography
               className="text-5xl font-bold"
-              color={settingsConfig.theme.navbar.palette.secondary.light}
+              color={Configuracion.theme.navbar.palette.secondary.light}
             >
               $
               {selectedCart.total.toLocaleString('es', {

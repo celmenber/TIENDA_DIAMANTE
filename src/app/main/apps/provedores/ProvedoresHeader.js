@@ -10,7 +10,7 @@ import {
   selectFilteredContacts,
   selectSearchText,
   setContactsSearchText,
-} from './store/contactsSlice';
+} from './store/provedoresSlice';
 
 function ContactsHeader(props) {
   const dispatch = useDispatch();
@@ -27,8 +27,8 @@ function ContactsHeader(props) {
           delay={300}
           className="text-24 md:text-32 font-extrabold tracking-tight leading-none"
         >
-          {/* <FuseSvgIcon size={40}>heroicons-outline:user-group</FuseSvgIcon> */}
-          Proveedor
+          Proveedores{' '}
+          {/* <FuseSvgIcon size={40}>heroicons-outline:user-group</FuseSvgIcon> Clientes */}
         </Typography>
         <Typography
           component={motion.span}

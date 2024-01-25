@@ -1,5 +1,3 @@
-const ClientsContent = () =>{
-    return 
-}
+const ClientsContent = () => {};
 
-export default ClientsContent
+export default ClientsContent;

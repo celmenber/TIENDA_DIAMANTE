@@ -12,7 +12,7 @@ import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
 import Box from '@mui/system/Box';
 import format from 'date-fns/format';
 import _ from '@lodash';
-import { getContact, selectContact } from '../store/contactSlice';
+import { getContact, selectContact } from '../store/provedorSlice';
 import { selectCountries } from '../store/countriesSlice';
 import { selectTags } from '../store/tagsSlice';
 

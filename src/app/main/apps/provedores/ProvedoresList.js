@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import Typography from '@mui/material/Typography';
 import List from '@mui/material/List';
 import Divider from '@mui/material/Divider';
-import { selectFilteredContacts, selectGroupedFilteredContacts } from './store/contactsSlice';
+import { selectFilteredContacts, selectGroupedFilteredContacts } from './store/provedoresSlice';
 import ContactListItem from './ProvedorListItem';
 
 function ContactsList(props) {
@@ -18,7 +18,7 @@ function ContactsList(props) {
     return (
       <div className="flex flex-1 items-center justify-center h-full">
         <Typography color="text.secondary" variant="h5">
-          ¡No hay clientes!
+          ¡No hay proveedores!
         </Typography>
       </div>
     );

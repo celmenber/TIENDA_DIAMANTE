@@ -1,17 +1,16 @@
-import Input from "@mui/material/Input";
-import Paper from "@mui/material/Paper";
-import Typography from "@mui/material/Typography";
-import { motion } from "framer-motion";
-import { useDispatch, useSelector } from "react-redux";
-import FuseSvgIcon from "@fuse/core/FuseSvgIcon";
-import { useClient } from "src/app/hooks";
+import Input from '@mui/material/Input';
+import Paper from '@mui/material/Paper';
+import Typography from '@mui/material/Typography';
+import { motion } from 'framer-motion';
+import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
+import { useClient } from 'src/app/hooks';
 
 function ClientsHeader(props) {
-  const { setClientSearchText,selectClientSearchText } = useClient();
+  const { setClientSearchText, selectClientSearchText } = useClient();
   const handleSearch = (ev) => {
     setClientSearchText(ev.target.value);
   };
-  const searchText = selectClientSearchText
+  const searchText = selectClientSearchText;
   return (
     <div className="flex flex-col sm:flex-row flex-1 w-full space-y-8 sm:space-y-0 items-center justify-between py-32 px-24 md:px-32">
       <Typography
@@ -40,7 +39,7 @@ function ClientsHeader(props) {
             fullWidth
             value={searchText}
             inputProps={{
-              "aria-label": "Search Clients",
+              'aria-label': 'Search Clients',
             }}
             onChange={(ev) => handleSearch(ev)}
           />

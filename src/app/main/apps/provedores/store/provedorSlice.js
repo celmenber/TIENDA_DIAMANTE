@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 import history from '@history';
-import ProvedorModel from '../model/provedorModel';
+import ContactModel from '../model/ProvedorModel';
 
 export const getContact = createAsyncThunk(
   'contactsApp/task/getContact',
@@ -59,7 +59,7 @@ const contactSlice = createSlice({
   name: 'contactsApp/contact',
   initialState: null,
   reducers: {
-    newContact: (state, action) => ProvedorModel(),
+    newContact: (state, action) => ContactModel(),
     resetContact: () => null,
   },
   extraReducers: {

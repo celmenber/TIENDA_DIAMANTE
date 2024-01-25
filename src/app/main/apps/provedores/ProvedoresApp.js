@@ -6,13 +6,13 @@ import { useParams } from 'react-router-dom';
 import { useDeepCompareEffect } from '@fuse/hooks';
 import { styled } from '@mui/material/styles';
 import useThemeMediaQuery from '@fuse/hooks/useThemeMediaQuery';
-import ContactsSidebarContent from './ProvedorSidebarContent';
-import ProveedorHeader from './ProveedorHeader';
-import ContactsList from './ProvedorList';
+import ContactsSidebarContent from './ProvedoresSidebarContent';
+import ContactsHeader from './ProvedoresHeader';
+import ContactsList from './ProvedoresList';
 import reducer from './store';
 import { getTags } from './store/tagsSlice';
 import { getCountries } from './store/countriesSlice';
-import { getContacts } from './store/contactsSlice';
+import { getContacts } from './store/provedoresSlice';
 
 const Root = styled(FusePageSimple)(({ theme }) => ({
   '& .FusePageSimple-header': {
@@ -39,7 +39,7 @@ function ContactsApp(props) {
 
   return (
     <Root
-      header={<ProveedorHeader pageLayout={pageLayout} />}
+      header={<ContactsHeader pageLayout={pageLayout} />}
       content={<ContactsList />}
       ref={pageLayout}
       rightSidebarContent={<ContactsSidebarContent />}

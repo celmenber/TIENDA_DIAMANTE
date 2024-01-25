@@ -139,9 +139,9 @@ const navigationConfig = [
         children: [
           {
             id: 'apps.provedor.home',
-            title: 'Proveedor',
+            title: 'Proveedores',
             type: 'item',
-            url: '/apps/provedor',
+            url: '/apps/provedores',
             end: true,
           },
           {

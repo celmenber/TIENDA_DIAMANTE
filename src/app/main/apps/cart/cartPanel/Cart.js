@@ -11,12 +11,16 @@ import {
   Box,
 } from '@mui/material';
 import { useCart, useClient } from 'src/app/hooks';
-import { settingsConfig } from 'app/configs/settingsConfig';
+import settingsConfigA from 'app/configs/settingsConfig';
+import settingsConfigV from 'app/configs/settingsConfigV';
 import { PersonAdd } from '@mui/icons-material';
 import CartInvoiceModal from '../InvoiceModal/CartInvoiceModal';
 import CartItem from './CartItem';
 
 const Cart = () => {
+  const USER_ROL = window.localStorage.getItem('RollUser');
+  const Configuracion = USER_ROL === 'administrador' ? settingsConfigA : settingsConfigV;
+
   const { selectSelectedCart: selectedCart, resetProducts } = useCart();
   const { selectClient } = useClient();
   const itemsInCart = selectedCart.items
@@ -61,7 +65,7 @@ const Cart = () => {
         </ListItem>
         <ListItem className="p-0 m-0 h-full">
           <Box
-            className={`p-0 m-5 w-full border-2 rounded-md border-[${settingsConfig.theme.main.palette.secondary.main}]`}
+            className={`p-0 m-5 w-full border-2 rounded-md border-[${Configuracion.theme.main.palette.secondary.main}]`}
           >
             <Typography variant="h5" className="px-10 pt-10 pb-0 w-full">
               $

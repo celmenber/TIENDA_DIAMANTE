@@ -1,6 +1,8 @@
 import SignInPage from './SignInPage';
 import authRoles from '../../auth/authRoles';
 
+console.log(authRoles.onlyGuest);
+
 const SignInConfig = {
   settings: {
     layout: {

@@ -24,11 +24,9 @@ import {
   removeContact,
   selectContact,
   updateContact,
-} from '../store/contactSlice';
+} from '../store/provedorSlice';
 import { selectCountries } from '../store/countriesSlice';
 import { selectTags } from '../store/tagsSlice';
-import ContactEmailSelector from './email-selector/ContactEmailSelector';
-import PhoneNumberSelector from './phone-number-selector/PhoneNumberSelector';
 
 /**
  * Form Validation Schema

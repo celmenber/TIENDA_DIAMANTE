@@ -8,7 +8,8 @@ import {
   getParsedQuerySettings,
   mustHaveThemeOptions,
 } from '@fuse/default-settings';
-import { settingsConfig, settingsConfigV } from 'app/configs/settingsConfig';
+import settingsConfigA from 'app/configs/settingsConfig';
+import settingsConfigV from 'app/configs/settingsConfigV';
 import themeLayoutConfigs from 'app/theme-layouts/themeLayoutConfigs';
 import { setUser, updateUserSettings } from 'app/store/userSlice';
 import { darkPaletteText, lightPaletteText } from 'app/configs/themesConfig';
@@ -32,11 +33,7 @@ export const changeFuseTheme = (theme) => (dispatch, getState) => {
 
 function getInitialSettings() {
   const USER_ROL = window.localStorage.getItem('RollUser');
-  // const layautRoll = USER_ROL === 'administrador' ? 'layout1' : 'layout2';
-  const Configuracion = USER_ROL === 'administrador' ? settingsConfig : settingsConfigV;
-
-/*   console.log('getInitialSettings', USER_ROL);
-  console.log('getInitialSettings', Configuracion.layout.style); */
+  const Configuracion = USER_ROL === 'administrador' ? settingsConfigA : settingsConfigV;
 
   const defaultLayoutStyle =
     Configuracion.layout && Configuracion.layout.style

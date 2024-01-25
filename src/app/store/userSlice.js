@@ -4,14 +4,15 @@ import history from '@history';
 import _ from '@lodash';
 import { setInitialSettings } from 'app/store/fuse/settingsSlice';
 import { showMessage } from 'app/store/fuse/messageSlice';
-import { settingsConfig, settingsConfigV } from 'app/configs/settingsConfig';
+import settingsConfigA from 'app/configs/settingsConfig';
+import settingsConfigV from 'app/configs/settingsConfigV';
 import jwtService from '../auth/services/jwtService';
 
 export const setUser = createAsyncThunk('user/setUser', async (user, { dispatch, getState }) => {
   /*
     You can redirect the logged-in user to a specific route depending on his role
     */
-  const Configuracion = user.role === 'administrador' ? settingsConfig : settingsConfigV;
+  const Configuracion = user.role === 'administrador' ? settingsConfigA : settingsConfigV;
 
   if (user.loginRedirectUrl) {
     Configuracion.loginRedirectUrl = user.loginRedirectUrl; // for example 'apps/academy'

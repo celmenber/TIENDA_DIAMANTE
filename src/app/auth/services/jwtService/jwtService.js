@@ -50,7 +50,7 @@ class JwtService extends FuseUtils.EventEmitter {
 
   signInWithEmailAndPassword = (email, password) => {
     const error = [];
-    console.log(`${baseURL}/${jwtServiceConfig.signIn}`);
+    // console.log(`${baseURL}/${jwtServiceConfig.signIn}`);
     return new Promise((resolve, reject) => {
       axios
         .post(`${baseURL}/${jwtServiceConfig.signIn}`, {
@@ -85,7 +85,7 @@ class JwtService extends FuseUtils.EventEmitter {
           }
         })
         .catch((e) => {
-          console.log(e.response.data);
+          console.log(e.response);
           const { success, response } = e.response.data;
           if (response === 'invalid username' && success === false) {
             error.push({

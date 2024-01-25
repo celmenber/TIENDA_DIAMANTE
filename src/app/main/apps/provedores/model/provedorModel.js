@@ -1,6 +1,6 @@
 import _ from '@lodash';
 
-const ContactModel = (data) =>
+const ProvedorModel = (data) =>
   _.defaults(data || {}, {
     avatar: null,
     background: null,
@@ -15,4 +15,4 @@ const ContactModel = (data) =>
     tags: [],
   });
 
-export default ContactModel;
+export default ProvedorModel;

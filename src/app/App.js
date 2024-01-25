@@ -1,5 +1,5 @@
 /* eslint-disable import/extensions */
- // import '@mock-api';
+// import '@mock-api';
 import BrowserRouter from '@fuse/core/BrowserRouter';
 import FuseLayout from '@fuse/core/FuseLayout';
 import FuseTheme from '@fuse/core/FuseTheme';
@@ -13,10 +13,10 @@ import { selectUser } from 'app/store/userSlice';
 import themeLayouts from 'app/theme-layouts/themeLayouts';
 import { selectMainTheme } from 'app/store/fuse/settingsSlice';
 import FuseAuthorization from '@fuse/core/FuseAuthorization';
-import { settingsConfig, settingsConfigV } from 'app/configs/settingsConfig';
+import settingsConfigA from 'app/configs/settingsConfig';
+import settingsConfigV from 'app/configs/settingsConfigV';
 import withAppProviders from './withAppProviders';
 import { AuthProvider } from './auth/AuthContext';
-
 // import axios from 'axios';
 /**
  * Axios HTTP Request defaults
@@ -43,7 +43,7 @@ const App = () => {
   const langDirection = useSelector(selectCurrentLanguageDirection);
   const mainTheme = useSelector(selectMainTheme);
 
-  const Configuracion = user.role === 'administrador' ? settingsConfig : settingsConfigV;
+  const Configuracion = user.role === 'administrador' ? settingsConfigA : settingsConfigV;
 
   return (
     <CacheProvider value={createCache(emotionCacheOptions[langDirection])}>

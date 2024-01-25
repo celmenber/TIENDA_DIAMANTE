@@ -1,7 +1,7 @@
 import SignUpPage from './SignUpPage';
 import authRoles from '../../auth/authRoles';
 
-const adm = 'admina';
+const adm = 'admin';
 const valperfil = adm === 'admin';
 
 const SignUpConfig = {

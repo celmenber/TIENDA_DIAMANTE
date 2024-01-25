@@ -31,6 +31,7 @@ function AuthProvider({ children }) {
     });
 
     jwtService.on('onLogin', (user) => {
+      console.log(user);
       success(user, 'Autenticado o Registrado');
     });
 
