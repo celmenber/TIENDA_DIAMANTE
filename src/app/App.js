@@ -1,5 +1,5 @@
 /* eslint-disable import/extensions */
-// import '@mock-api';
+import '@mock-api';
 import BrowserRouter from '@fuse/core/BrowserRouter';
 import FuseLayout from '@fuse/core/FuseLayout';
 import FuseTheme from '@fuse/core/FuseTheme';
@@ -15,15 +15,15 @@ import { selectMainTheme } from 'app/store/fuse/settingsSlice';
 import FuseAuthorization from '@fuse/core/FuseAuthorization';
 import settingsConfigA from 'app/configs/settingsConfig';
 import settingsConfigV from 'app/configs/settingsConfigV';
+import axios from 'axios';
 import withAppProviders from './withAppProviders';
 import { AuthProvider } from './auth/AuthContext';
-// import axios from 'axios';
 /**
  * Axios HTTP Request defaults
  */
-// axios.defaults.baseURL = "";
-// axios.defaults.headers.common['Access-Control-Allow-Origin'] = '*';
-// axios.defaults.headers.common['Content-Type'] = 'application/x-www-form-urlencoded';
+axios.defaults.baseURL = '';
+axios.defaults.headers.common['Access-Control-Allow-Origin'] = '*';
+axios.defaults.headers.common['Content-Type'] = 'application/x-www-form-urlencoded';
 
 const emotionCacheOptions = {
   rtl: {

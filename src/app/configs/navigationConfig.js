@@ -23,27 +23,6 @@ const navigationConfig = [
         icon: 'developer_board',
         url: '/dashboards/project',
       },
-      /*  {
-        id: 'dashboards.analytics',
-        title: 'Add Empleados',
-        type: 'item',
-        icon: 'heroicons-outline:chart-pie',
-        url: '/dashboards/analytics',
-      },
-      {
-        id: 'dashboards.finance',
-        title: 'Perfil Usuarios',
-        type: 'item',
-        icon: 'heroicons-outline:cash',
-        url: '/dashboards/finance',
-      },
-      {
-        id: 'dashboards.crypto',
-        title: 'Permisos',
-        type: 'item',
-        icon: 'heroicons-outline:currency-dollar',
-        url: '/dashboards/crypto',
-      }, */
       {
         id: 'configs',
         title: 'Configuración',
@@ -172,12 +151,6 @@ const navigationConfig = [
         icon: 'heroicons-outline:cash',
         children: [
           {
-            id: 'pages.pricing.modern',
-            title: 'Modern',
-            type: 'item',
-            url: '/pages/pricing/modern',
-          },
-          {
             id: 'pages.pricing.simple',
             title: 'Ventas Locales',
             type: 'item',
@@ -211,63 +184,18 @@ const navigationConfig = [
         children: [
           {
             id: 'pages.pricing.modern',
-            title: 'Modern',
+            title: 'Generar Inventario',
             type: 'item',
             url: '/pages/pricing/modern',
           },
           {
             id: 'pages.pricing.simple',
-            title: 'Simple',
+            title: 'Ver Inventario',
             type: 'item',
             url: '/pages/pricing/simple',
           },
-          {
-            id: 'pages.pricing.single',
-            title: 'Single',
-            type: 'item',
-            url: '/pages/pricing/single',
-          },
-          {
-            id: 'pages.pricing.table',
-            title: 'Table',
-            type: 'item',
-            url: '/pages/pricing/table',
-          },
         ],
       },
-   /*   {
-        id: 'apps.academy',
-        title: 'BODEGA',
-        type: 'item',
-        icon: 'heroicons-outline:academic-cap',
-        url: '/apps/academy',
-        translate: 'BODEGA',
-      },
-     /*  {
-        id: 'apps.calendar',
-        title: 'COMPRAS',
-        subtitle: '3 upcoming events',
-        type: 'item',
-        icon: 'heroicons-outline:calendar',
-        url: '/apps/calendar',
-        translate: 'COMPRAS',
-      },
-      {
-        id: 'apps.chat',
-        title: 'VENTAS',
-        type: 'item',
-        icon: 'heroicons-outline:chat-alt',
-        url: '/apps/chat',
-        translate: 'VENTAS',
-      },
-      {
-        id: 'apps.contacts',
-        title: 'INVENTARIO',
-        type: 'item',
-        icon: 'heroicons-outline:user-group',
-        url: '/apps/contacts',
-        translate: 'INVENTARIO',
-      }, */
     ],
   },
 ];
