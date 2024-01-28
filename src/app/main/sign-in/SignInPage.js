@@ -12,17 +12,21 @@ import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { showMessage } from 'app/store/fuse/messageSlice';
 import jwtService from '../../auth/services/jwtService';
 
 /**
  * Form Validation Schema
  */
 const schema = yup.object().shape({
-  email: yup.string().email('You must enter a valid email').required('You must enter a email'),
+  email: yup
+    .string()
+    .email('Debes ingresar un correo electrónico válido')
+    .required('Debes ingresar un correo electrónico'),
   password: yup
     .string()
-    .required('Please enter your password.')
-    .min(4, 'Password is too short - must be at least 4 chars.'),
+    .required('Por favor, introduzca su Password.')
+    .min(4, 'El Password es muy corta; debe tener al menos 4 caracteres.'),
 });
 
 const defaultValues = {
@@ -52,23 +56,25 @@ function SignInPage() {
 
   function onSubmit({ email, password }) {
     setLoading(true);
-    jwtService.signInWithEmailAndPassword(email, password).then((user) => {
-      setLoading(false);
-      console.log(user);
-      /* user.error &&
+    jwtService
+      .signInWithEmailAndPassword(email, password)
+      .then((user) => {
+        setLoading(false);
+        console.log(user);
+        user.error &&
           dispatch(
             showMessage({
               anchorOrigin: {
-                vertical: 'bottom',
+                vertical: 'top',
                 horizontal: 'center',
               },
               message: user.error.message,
               variant: 'error',
             })
-          ); */
-      // No need to do anything, user data will be set at app/auth/AuthContext
-    });
-    /* .catch((_errors) => {
+          );
+        // No need to do anything, user data will be set at app/auth/AuthContext
+      })
+      .catch((_errors) => {
         setLoading(false);
         _errors.forEach((error) => {
           setError(error.type, {
@@ -76,7 +82,7 @@ function SignInPage() {
             message: error.message,
           });
         });
-      }); */
+      });
   }
 
   return (

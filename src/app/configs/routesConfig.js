@@ -10,8 +10,7 @@ import appsConfigs from '../main/apps/appsConfigs';
 
 const routeConfigs = [...appsConfigs, ...dashboardsConfigs, SignOutConfig, SignInConfig];
 
-const USER_ROL = localStorage.getItem('RollUser');
-console.log(USER_ROL);
+const USER_ROL = window.localStorage.getItem('RollUser');
 const Configuracion = USER_ROL === 'administrador' ? settingsConfigA : settingsConfigV;
 
 const routes = [

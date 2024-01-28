@@ -31,8 +31,10 @@ export const changeFuseTheme = (theme) => (dispatch, getState) => {
   dispatch(setDefaultSettings(newSettings));
 };
 
-function getInitialSettings() {
+// function getInitialSettings() {
+const getInitialSettings = () => {
   const USER_ROL = window.localStorage.getItem('RollUser');
+  console.log(USER_ROL);
   const Configuracion = USER_ROL === 'administrador' ? settingsConfigA : settingsConfigV;
 
   const defaultLayoutStyle =
@@ -41,11 +43,11 @@ function getInitialSettings() {
       : Configuracion.layout.style;
 
   const layout = {
-    style: defaultLayoutStyle,
+    style: Configuracion.layout.style,
     config: themeLayoutConfigs[defaultLayoutStyle].defaults,
   };
   return _.merge({}, defaultSettings, { layout }, Configuracion, getParsedQuerySettings());
-}
+};
 
 export function generateSettings(_defaultSettings, _newSettings) {
   const response = _.merge(

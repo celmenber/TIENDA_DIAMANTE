@@ -21,7 +21,7 @@ function ProductsHeader(props) {
         delay={300}
         className="text-24 md:text-32 font-extrabold tracking-tight"
       >
-        Products
+        Productos
       </Typography>
 
       <div className="flex flex-col w-full sm:w-auto sm:flex-row space-y-16 sm:space-y-0 flex-1 items-center justify-end space-x-8">
@@ -34,7 +34,7 @@ function ProductsHeader(props) {
           <FuseSvgIcon color="disabled">heroicons-solid:search</FuseSvgIcon>
 
           <Input
-            placeholder="Search products"
+            placeholder="Bsucar productos"
             className="flex flex-1"
             disableUnderline
             fullWidth
@@ -57,7 +57,7 @@ function ProductsHeader(props) {
             color="secondary"
             startIcon={<FuseSvgIcon>heroicons-outline:plus</FuseSvgIcon>}
           >
-            Add
+            Agregar
           </Button>
         </motion.div>
       </div>

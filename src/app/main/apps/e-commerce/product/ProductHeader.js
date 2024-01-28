@@ -79,10 +79,10 @@ function ProductHeader(props) {
             animate={{ x: 0, transition: { delay: 0.3 } }}
           >
             <Typography className="text-16 sm:text-20 truncate font-semibold">
-              {name || 'New Product'}
+              {name || 'Nuevo producto'}
             </Typography>
             <Typography variant="caption" className="font-medium">
-              Product Detail
+              Detalle del producto
             </Typography>
           </motion.div>
         </div>
