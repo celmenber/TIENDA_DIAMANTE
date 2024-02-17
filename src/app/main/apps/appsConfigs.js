@@ -3,7 +3,9 @@ import HelpCenterAppConfig from './help-center/HelpCenterAppConfig';
 import ProfileAppConfig from './profile/profileAppConfig';
 import ProvedorAppConfig from './provedores/ProvedoresAppConfig';
 import ECommerceAppConfig from './e-commerce/ECommerceAppConfig';
-// import CategoriasAppConfig from './categorias/CategoriasAppConfig';
+import CategoriasAppConfig from './categorias/CategoriasAppConfig';
+import PresentacionAppConfig from './presentaciones/PresentacionAppConfig';
+import MarcasAppConfig from './marcas/MarcasAppConfig';
 
 const appsConfigs = [
   HelpCenterAppConfig,
@@ -11,7 +13,10 @@ const appsConfigs = [
   ClientesAppConfig,
   ProvedorAppConfig,
   ECommerceAppConfig,
-  // CategoriasAppConfig,
+  CategoriasAppConfig,
+  PresentacionAppConfig,
+  MarcasAppConfig,
+
 ];
 
 export default appsConfigs;

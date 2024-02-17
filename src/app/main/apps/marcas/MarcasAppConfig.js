@@ -1,8 +1,8 @@
 import { lazy } from 'react';
-import ClientesView from './contact/ContactView';
-import ClientesForm from './contact/ContactForm';
+import CategoriasView from './marca/MarcaView';
+import CategoriasForm from './marca/MarcaForm';
 
-const ClientesApp = lazy(() => import('./ContactsApp'));
+const CategoriasApp = lazy(() => import('./MarcasApp'));
 
 const ContactsAppConfig = {
   settings: {
@@ -12,16 +12,16 @@ const ContactsAppConfig = {
   },
   routes: [
     {
-      path: 'apps/clientes',
-      element: <ClientesApp />,
+      path: 'apps/marcas',
+      element: <CategoriasApp />,
       children: [
         {
           path: ':id',
-          element: <ClientesView />,
+          element: <CategoriasView />,
         },
         {
           path: ':id/edit',
-          element: <ClientesForm />,
+          element: <CategoriasForm />,
         },
       ],
     },
