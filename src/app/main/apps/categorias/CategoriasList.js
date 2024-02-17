@@ -14,7 +14,7 @@ function ContactsList(props) {
     return null;
   }
 
-  if (filteredData.length === 0) {
+  if (filteredData.length !== 0) {
     return (
       <div className="flex flex-1 items-center justify-center h-full">
         <Typography color="text.secondary" variant="h5">
