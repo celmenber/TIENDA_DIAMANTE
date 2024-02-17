@@ -73,7 +73,7 @@ const navigationConfig = [
         title: 'Clientes',
         type: 'item',
         icon: 'heroicons-outline:user-group',
-        url: '/apps/contacts',
+        url: '/apps/clientes',
         translate: 'CLIENTES',
       },
       {
