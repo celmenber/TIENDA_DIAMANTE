@@ -13,13 +13,13 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import withRouter from '@fuse/core/withRouter';
 import FuseLoading from '@fuse/core/FuseLoading';
-import OrdersStatus from './OrdersStatus';
-import { getOrders, selectOrders, selectOrdersSearchText } from '../cartView/store/ordersSlice';
-import OrdersTableHead from './OrdersTableHead';
 import { useCart } from 'src/app/hooks';
+import OrdersStatus from './OrdersStatus';
+import { getOrders, selectOrdersSearchText } from '../cartView/store/ordersSlice';
+import OrdersTableHead from './OrdersTableHead';
 
 function OrdersTable(props) {
-  const {selectCarts:orders, calculateTotal} = useCart()
+  const { selectCarts: orders, calculateTotal } = useCart();
   const dispatch = useDispatch();
   const searchText = useSelector(selectOrdersSearchText);
   const [loading, setLoading] = useState(true);
@@ -119,7 +119,7 @@ function OrdersTable(props) {
         className="flex flex-1 items-center justify-center h-full"
       >
         <Typography color="text.secondary" variant="h5">
-          There are no orders!
+          There are no orders000!
         </Typography>
       </motion.div>
     );
@@ -164,7 +164,7 @@ function OrdersTable(props) {
               ],
               [order.date]
             )
-              .filter(order => order.type === "order")
+              .filter((order) => order.type === 'order')
               .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
               .map((n) => {
                 const isSelected = selected.indexOf(n.id) !== -1;
@@ -195,7 +195,12 @@ function OrdersTable(props) {
                       {n.items.length}
                     </TableCell>
 
-                    <TableCell className="p-4 md:p-16 truncate" component="th" scope="row" align="center">
+                    <TableCell
+                      className="p-4 md:p-16 truncate"
+                      component="th"
+                      scope="row"
+                      align="center"
+                    >
                       {`${n.clientId}`}
                     </TableCell>
 
@@ -204,9 +209,7 @@ function OrdersTable(props) {
                       {n.total}
                     </TableCell>
 
-                    <TableCell className="p-4 md:p-16" component="th" scope="row" align="center">
-                     
-                    </TableCell>
+                    <TableCell className="p-4 md:p-16" component="th" scope="row" align="center" />
 
                     <TableCell className="p-4 md:p-16" component="th" scope="row" align="center">
                       <OrdersStatus name={n.status} />

@@ -92,9 +92,9 @@ const navigationConfig = [
           },
           {
             id: 'e-commerce-product-detail',
-            title: 'Categoria',
+            title: 'Categorias',
             type: 'item',
-            url: 'apps/e-commerce/products/1/a-walk-amongst-friends-canvas-print',
+            url: '/apps/categorias',
           },
           {
             id: 'e-commerce-new-product',

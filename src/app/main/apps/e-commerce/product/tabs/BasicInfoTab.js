@@ -19,7 +19,7 @@ function BasicInfoTab(props) {
             error={!!errors.name}
             required
             helperText={errors?.name?.message}
-            label="Name"
+            label="Nambre Producto"
             autoFocus
             id="name"
             variant="outlined"
@@ -36,7 +36,7 @@ function BasicInfoTab(props) {
             {...field}
             className="mt-8 mb-16"
             id="description"
-            label="Description"
+            label="Descripcion"
             type="text"
             multiline
             rows={5}
@@ -63,8 +63,8 @@ function BasicInfoTab(props) {
             renderInput={(params) => (
               <TextField
                 {...params}
-                placeholder="Select multiple categories"
-                label="Categories"
+                placeholder="Seleccione varias categorías"
+                label="Categorias"
                 variant="outlined"
                 InputLabelProps={{
                   shrink: true,
@@ -92,7 +92,7 @@ function BasicInfoTab(props) {
             renderInput={(params) => (
               <TextField
                 {...params}
-                placeholder="Select multiple tags"
+                placeholder="Seleccionar varias etiquetas"
                 label="Tags"
                 variant="outlined"
                 InputLabelProps={{
