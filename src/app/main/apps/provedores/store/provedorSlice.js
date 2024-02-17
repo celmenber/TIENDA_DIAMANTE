@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 import history from '@history';
-import ContactModel from '../model/ProvedorModel';
+import ContactModel from '../model/provedorModel';
 
 export const getContact = createAsyncThunk(
   'contactsApp/task/getContact',
