@@ -15,7 +15,7 @@ function ContactListItem(props) {
         sx={{ bgcolor: 'background.paper' }}
         button
         component={NavLinkAdapter}
-        to={`/apps/contacts/${contact.id}`}
+        to={`/apps/clientes/${contact.id}`}
       >
         <ListItemAvatar>
           <Avatar alt={contact.name} src={contact.avatar} />

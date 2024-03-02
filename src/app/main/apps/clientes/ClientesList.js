@@ -4,7 +4,7 @@ import Typography from '@mui/material/Typography';
 import List from '@mui/material/List';
 import Divider from '@mui/material/Divider';
 import { selectFilteredContacts, selectGroupedFilteredContacts } from './store/contactsSlice';
-import ContactListItem from './ContactListItem';
+import ContactListItem from './ClienteListItem';
 
 function ContactsList(props) {
   const filteredData = useSelector(selectFilteredContacts);

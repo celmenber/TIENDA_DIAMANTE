@@ -1,10 +1,10 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 import history from '@history';
-import ContactModel from '../model/ContactModel';
+import ClienteModel from '../model/ClienteModel';
 
 export const getContact = createAsyncThunk(
-  'contactsApp/task/getContact',
+  'clientesApp/cliente/getCliente',
   async (id, { dispatch, getState }) => {
     try {
       const response = await axios.get(`/api/contacts/${id}`);
@@ -13,7 +13,7 @@ export const getContact = createAsyncThunk(
 
       return data;
     } catch (error) {
-      history.push({ pathname: `/apps/contacts` });
+      history.push({ pathname: `/apps/clientes` });
 
       return null;
     }
@@ -59,7 +59,7 @@ const contactSlice = createSlice({
   name: 'contactsApp/contact',
   initialState: null,
   reducers: {
-    newContact: (state, action) => ContactModel(),
+    newContact: (state, action) => ClienteModel(),
     resetContact: () => null,
   },
   extraReducers: {

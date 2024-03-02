@@ -3,7 +3,7 @@ import Button from '@mui/material/Button';
 import { forwardRef } from 'react';
 import clsx from 'clsx';
 import EmailInput from './EmailInput';
-import ContactModel from '../../model/ContactModel';
+import ContactModel from '../../model/ClienteModel';
 
 const ContactEmailSelector = forwardRef(({ value, onChange, className }, ref) => {
   return (

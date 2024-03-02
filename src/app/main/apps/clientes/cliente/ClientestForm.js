@@ -24,9 +24,11 @@ import {
   removeContact,
   selectContact,
   updateContact,
-} from '../store/provedorSlice';
+} from '../store/contactSlice';
 import { selectCountries } from '../store/countriesSlice';
 import { selectTags } from '../store/tagsSlice';
+import ContactEmailSelector from './email-selector/ContactEmailSelector';
+import PhoneNumberSelector from './phone-number-selector/PhoneNumberSelector';
 
 /**
  * Form Validation Schema
@@ -74,7 +76,7 @@ const ContactForm = (props) => {
   function onSubmit(data) {
     if (routeParams.id === 'new') {
       dispatch(addContact(data)).then(({ payload }) => {
-        navigate(`/apps/contacts/${payload.id}`);
+        navigate(`/apps/clientes/${payload.id}`);
       });
     } else {
       dispatch(updateContact(data));
@@ -83,7 +85,7 @@ const ContactForm = (props) => {
 
   function handleRemoveContact() {
     dispatch(removeContact(contact.id)).then(() => {
-      navigate('/apps/contacts');
+      navigate('/apps/clientes');
     });
   }
 

@@ -1,8 +1,8 @@
 import _ from '@lodash';
 
-const TaskModel = (data) =>
+const SectionModel = (data) =>
   _.defaults(data || {}, {
-    type: 'task',
+    type: 'section',
     title: '',
     notes: '',
     completed: false,
@@ -11,7 +11,7 @@ const TaskModel = (data) =>
     tags: [],
     assignedTo: null,
     subTasks: [],
-    order: 1,
+    order: 0,
   });
 
-export default TaskModel;
+export default SectionModel;

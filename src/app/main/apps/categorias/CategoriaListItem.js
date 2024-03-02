@@ -6,7 +6,7 @@ import ListItemText from '@mui/material/ListItemText';
 import Divider from '@mui/material/Divider';
 import NavLinkAdapter from '@fuse/core/NavLinkAdapter';
 
-function ContactListItem(props) {
+function ClientesListItem(props) {
   const { contact } = props;
   return (
     <>
@@ -15,7 +15,7 @@ function ContactListItem(props) {
         sx={{ bgcolor: 'background.paper' }}
         button
         component={NavLinkAdapter}
-        to={`/apps/contacts/${contact.id}`}
+        to={`/apps/clientes/${contact.id}`}
       >
         <ListItemAvatar>
           <Avatar alt={contact.name} src={contact.avatar} />
@@ -42,4 +42,4 @@ function ContactListItem(props) {
   );
 }
 
-export default ContactListItem;
+export default ClientesListItem;

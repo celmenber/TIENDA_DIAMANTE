@@ -1,53 +1,72 @@
-import { motion } from 'framer-motion';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import Typography from '@mui/material/Typography';
 import List from '@mui/material/List';
-import Divider from '@mui/material/Divider';
-import { selectFilteredContacts, selectGroupedFilteredContacts } from './store/provedoresSlice';
-import ContactListItem from './ProvedorListItem';
+import { DragDropContext, Droppable } from 'react-beautiful-dnd';
+import { reorderList, selectTasks } from './store/tasksSlice';
+import TaskListItem from './ProvedorListItem';
+import SectionListItem from './SectionListItem';
 
-function ContactsList(props) {
-  const filteredData = useSelector(selectFilteredContacts);
-  const groupedFilteredContacts = useSelector(selectGroupedFilteredContacts);
+function TasksList(props) {
+  const dispatch = useDispatch();
+  const tasks = useSelector(selectTasks);
 
-  if (!filteredData) {
+  if (!tasks) {
     return null;
   }
 
-  if (filteredData.length === 0) {
+  if (tasks.length === 0) {
     return (
       <div className="flex flex-1 items-center justify-center h-full">
         <Typography color="text.secondary" variant="h5">
-          ¡No hay proveedores!
+          There are no tasks!
         </Typography>
       </div>
     );
   }
 
+  function onDragEnd(result) {
+    if (!result.destination) {
+      return;
+    }
+
+    if (result.destination.index === result.source.index) {
+      return;
+    }
+
+    dispatch(
+      reorderList({
+        arr: tasks,
+        startIndex: result.source.index,
+        endIndex: result.destination.index,
+      })
+    );
+  }
   return (
-    <motion.div
-      initial={{ y: 20, opacity: 0 }}
-      animate={{ y: 0, opacity: 1, transition: { delay: 0.2 } }}
-      className="flex flex-1 flex-col justify-center w-full max-h-full"
-      // className="flex flex-col flex-auto w-full max-h-full"
-    >
-      {Object.entries(groupedFilteredContacts).map(([key, group]) => {
-        return (
-          <div key={key} className="relative">
-            <Typography color="text.secondary" className="px-32 py-4 text-14 font-medium">
-              {key}
-            </Typography>
-            <Divider />
-            <List className="w-full m-0 p-0">
-              {group.children.map((item) => (
-                <ContactListItem key={item.id} contact={item} />
-              ))}
-            </List>
-          </div>
-        );
-      })}
-    </motion.div>
+    <List className="w-full m-0 p-0">
+      <DragDropContext onDragEnd={onDragEnd}>
+        <Droppable droppableId="list" type="list" direction="vertical">
+          {(provided) => (
+            <>
+              <div ref={provided.innerRef}>
+                {tasks.map((item, index) => {
+                  if (item.type === 'task') {
+                    return <TaskListItem data={item} index={index} key={item.id} />;
+                  }
+
+                  if (item.type === 'section') {
+                    return <SectionListItem key={item.id} index={index} data={item} />;
+                  }
+
+                  return null;
+                })}
+              </div>
+              {provided.placeholder}
+            </>
+          )}
+        </Droppable>
+      </DragDropContext>
+    </List>
   );
 }
 
-export default ContactsList;
+export default TasksList;

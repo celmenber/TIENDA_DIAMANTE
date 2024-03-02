@@ -6,13 +6,12 @@ import { useParams } from 'react-router-dom';
 import { useDeepCompareEffect } from '@fuse/hooks';
 import { styled } from '@mui/material/styles';
 import useThemeMediaQuery from '@fuse/hooks/useThemeMediaQuery';
-import ContactsSidebarContent from './ProvedoresSidebarContent';
-import ContactsHeader from './ProvedoresHeader';
-import ContactsList from './ProvedoresList';
+import TasksSidebarContent from './ProvedoresSidebarContent';
+import ProvedoresHeader from './ProvedoresHeader';
+import ProvedoresList from './ProvedoresList';
 import reducer from './store';
 import { getTags } from './store/tagsSlice';
-import { getCountries } from './store/countriesSlice';
-import { getContacts } from './store/provedoresSlice';
+import { getTasks } from './store/tasksSlice';
 
 const Root = styled(FusePageSimple)(({ theme }) => ({
   '& .FusePageSimple-header': {
@@ -20,7 +19,7 @@ const Root = styled(FusePageSimple)(({ theme }) => ({
   },
 }));
 
-function ContactsApp(props) {
+function ProvedoresApp(props) {
   const dispatch = useDispatch();
   const pageLayout = useRef(null);
   const routeParams = useParams();
@@ -28,8 +27,7 @@ function ContactsApp(props) {
   const isMobile = useThemeMediaQuery((theme) => theme.breakpoints.down('lg'));
 
   useDeepCompareEffect(() => {
-    dispatch(getContacts());
-    dispatch(getCountries());
+    dispatch(getTasks());
     dispatch(getTags());
   }, [dispatch]);
 
@@ -39,10 +37,10 @@ function ContactsApp(props) {
 
   return (
     <Root
-      header={<ContactsHeader pageLayout={pageLayout} />}
-      content={<ContactsList />}
+      header={<ProvedoresHeader pageLayout={pageLayout} />}
+      content={<ProvedoresList />}
       ref={pageLayout}
-      rightSidebarContent={<ContactsSidebarContent />}
+      rightSidebarContent={<TasksSidebarContent />}
       rightSidebarOpen={rightSidebarOpen}
       rightSidebarOnClose={() => setRightSidebarOpen(false)}
       rightSidebarWidth={640}
@@ -51,4 +49,4 @@ function ContactsApp(props) {
   );
 }
 
-export default withReducer('contactsApp', reducer)(ContactsApp);
+export default withReducer('tasksApp', reducer)(ProvedoresApp);

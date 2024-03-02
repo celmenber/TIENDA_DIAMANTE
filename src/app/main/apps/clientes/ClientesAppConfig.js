@@ -1,8 +1,8 @@
 import { lazy } from 'react';
-import ClientesView from './contact/ContactView';
-import ClientesForm from './contact/ContactForm';
+import ClientesView from './cliente/ClienteView';
+import ClientesForm from './cliente/ClientestForm';
 
-const ClientesApp = lazy(() => import('./ContactsApp'));
+const ClientesApp = lazy(() => import('./ClientesApp'));
 
 const ContactsAppConfig = {
   settings: {
