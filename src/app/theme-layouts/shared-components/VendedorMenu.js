@@ -53,7 +53,7 @@ function VendedorMenu(props) {
       <Button
         className="min-h-40 min-w-40 px-0 md:px-16 py-0 md:py-6"
         component={NavLink}
-        to="/apps/contacts"
+        to="/apps/clientes"
         // onClick={userMenuClick}
         color="inherit"
         startIcon={<FuseSvgIcon size={20}>heroicons-outline:user-group</FuseSvgIcon>}

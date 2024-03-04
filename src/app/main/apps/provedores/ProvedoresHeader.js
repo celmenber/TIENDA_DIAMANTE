@@ -6,7 +6,7 @@ import NavLinkAdapter from '@fuse/core/NavLinkAdapter';
 import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
 import { selectRemainingTasks } from './store/tasksSlice';
 
-function TasksHeader(props) {
+function ProvedorHeader(props) {
   const remainingTasks = useSelector(selectRemainingTasks);
 
   return (
@@ -19,7 +19,7 @@ function TasksHeader(props) {
           delay={300}
           className="text-24 md:text-32 font-extrabold tracking-tight leading-none"
         >
-          Tasks
+          Proveedores
         </Typography>
         <Typography
           component={motion.span}
@@ -29,15 +29,15 @@ function TasksHeader(props) {
           className="text-14 font-medium ml-2"
           color="text.secondary"
         >
-          {`${remainingTasks} remaining tasks`}
+          {`${remainingTasks}  proveedores`}
         </Typography>
       </div>
 
       <div className="flex items-center -mx-8">
-        <Button className="mx-8 whitespace-nowrap" component={NavLinkAdapter} to="new/section">
+        {/*  <Button className="mx-8 whitespace-nowrap" component={NavLinkAdapter} to="new/section">
           <FuseSvgIcon size={20}>heroicons-outline:plus</FuseSvgIcon>
           <span className="mx-8">Add Section</span>
-        </Button>
+        </Button> */}
         <Button
           className="mx-8 whitespace-nowrap"
           variant="contained"
@@ -46,11 +46,11 @@ function TasksHeader(props) {
           to="new/task"
         >
           <FuseSvgIcon size={20}>heroicons-outline:plus</FuseSvgIcon>
-          <span className="mx-8">Add Task</span>
+          <span className="mx-8">Add Proveedor</span>
         </Button>
       </div>
     </div>
   );
 }
 
-export default TasksHeader;
+export default ProvedorHeader;

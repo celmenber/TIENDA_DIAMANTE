@@ -119,7 +119,7 @@ function OrdersTable(props) {
         className="flex flex-1 items-center justify-center h-full"
       >
         <Typography color="text.secondary" variant="h5">
-          No hay ordenes de compras!
+          No hay Pedidos!
         </Typography>
       </motion.div>
     );

@@ -127,7 +127,7 @@ const navigationConfig = [
             id: 'e-commerce-orders',
             title: 'Ordenes de compras',
             type: 'item',
-            url: 'apps/e-commerce/orders',
+            url: 'apps/o-compras/orders',
             end: true,
           },
           {

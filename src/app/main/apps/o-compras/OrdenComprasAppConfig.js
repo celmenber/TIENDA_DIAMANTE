@@ -6,32 +6,32 @@ const Products = lazy(() => import('./products/Products'));
 const Order = lazy(() => import('./order/Order'));
 const Orders = lazy(() => import('./orders/Orders'));
 
-const ECommerceAppConfig = {
+const OrdenComprasAppConfig = {
   settings: {
     layout: {},
   },
   routes: [
     {
-      path: 'apps/e-commerce/products',
+      path: 'apps/o-compras/products',
       element: <Products />,
     },
     {
-      path: 'apps/e-commerce/products/:productId/*',
+      path: 'apps/o-compras/products/:productId/*',
       element: <Product />,
     },
     {
-      path: 'apps/e-commerce/orders',
+      path: 'apps/o-compras/orders',
       element: <Orders />,
     },
     {
-      path: 'apps/e-commerce/orders/:orderId',
+      path: 'apps/o-compras/orders/:orderId',
       element: <Order />,
     },
     {
-      path: 'apps/e-commerce',
+      path: 'apps/o-compras',
       element: <Navigate to="products" />,
     },
   ],
 };
 
-export default ECommerceAppConfig;
+export default OrdenComprasAppConfig;
