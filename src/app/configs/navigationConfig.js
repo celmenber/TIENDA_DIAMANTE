@@ -134,14 +134,8 @@ const navigationConfig = [
             id: 'apps.help-center.faqs',
             title: 'Pedidos',
             type: 'item',
-            url: '/apps/help-center/faqs',
+            url: '/apps/pedidos/orders',
           },
-          /*  {
-             id: 'apps.help-center.guides',
-            title: 'Guides',
-            type: 'item',
-            url: '/apps/help-center/guides',
-          }, */
         ],
       },
       {
