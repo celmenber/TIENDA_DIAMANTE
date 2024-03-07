@@ -87,7 +87,7 @@ const navigationConfig = [
             id: 'e-commerce-products',
             title: 'Productos',
             type: 'item',
-            url: 'apps/e-commerce/products',
+            url: 'apps/o-compras/products',
             end: true,
           },
           {
@@ -146,27 +146,21 @@ const navigationConfig = [
         children: [
           {
             id: 'pages.pricing.simple',
-            title: 'Ventas Locales',
+            title: 'Gestion Ventas',
             type: 'item',
-            url: '/pages/pricing/simple',
-          },
-          {
-            id: 'pages.pricing.single',
-            title: 'Ventas Online',
-            type: 'item',
-            url: '/pages/pricing/single',
+            url: '/apps/ventas',
           },
           {
             id: 'pages.pricing.table',
-            title: 'Ordenes entregadas',
+            title: 'Entregadas Pedidos',
             type: 'item',
-            url: '/pages/pricing/table',
+            url: '/apps/ordenesentregas',
           },
           {
             id: 'pages.pricing.table',
             title: 'Cuentas por Cobrar',
             type: 'item',
-            url: '/pages/pricing/table',
+            url: '/apps/credito',
           },
         ],
       },
