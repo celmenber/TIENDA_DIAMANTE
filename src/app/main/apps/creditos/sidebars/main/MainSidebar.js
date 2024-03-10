@@ -1,3 +1,4 @@
+/* eslint-disable import/no-cycle */
 import FuseScrollbars from '@fuse/core/FuseScrollbars';
 import FuseUtils from '@fuse/utils';
 import Input from '@mui/material/Input';
@@ -11,13 +12,12 @@ import clsx from 'clsx';
 import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
 import Box from '@mui/material/Box';
 import { lighten } from '@mui/material/styles';
-import ContactListItem from './ContactListItem';
+import ClientetListItem from './ClientetListItem';
 import { getChat } from '../../store/chatSlice';
 import { selectContacts } from '../../store/contactsSlice';
 import { selectChats } from '../../store/chatsSlice';
-import ContactAvatar from '../../ContactAvatar';
-import MainSidebarMoreMenu from './MainSidebarMoreMenu';
-import { ChatAppContext } from '../../ChatApp';
+// import ContactAvatar from '../../ContactAvatar';
+import { ChatAppContext } from '../../CreditoApp';
 import { selectUser } from '../../store/userSlice';
 
 function MainSidebar(props) {
@@ -54,12 +54,17 @@ function MainSidebar(props) {
               role="button"
               tabIndex={0}
             >
-              <ContactAvatar className="relative" contact={user} />
-              <Typography className="mx-16 font-medium">{user.name}</Typography>
+              <Typography
+                component={motion.span}
+                initial={{ x: -20 }}
+                animate={{ x: 0, transition: { delay: 0.2 } }}
+                delay={300}
+                className="text-24 md:text-32 font-extrabold tracking-tight leading-none"
+              >
+                Creditos
+              </Typography>
             </div>
           )}
-
-          <MainSidebarMoreMenu className="-mx-16" />
         </div>
         {useMemo(
           () => (
@@ -69,7 +74,7 @@ function MainSidebar(props) {
               </FuseSvgIcon>
 
               <Input
-                placeholder="Search or start new chat"
+                placeholder="Buscar clientes con creditos"
                 className="flex flex-1 px-8"
                 disableUnderline
                 fullWidth
@@ -128,7 +133,7 @@ function MainSidebar(props) {
                 {filteredChatList.length > 0 && (
                   <motion.div variants={item}>
                     <Typography className="font-medium text-20 px-32 py-24" color="secondary.main">
-                      Chats
+                      Lista de Clientes
                     </Typography>
                   </motion.div>
                 )}
@@ -136,7 +141,7 @@ function MainSidebar(props) {
                 {filteredChatList.map((contact, index) => (
                   <motion.div variants={item} key={contact.id}>
                     <div className={clsx(filteredChatList.length !== index + 1 && 'border-b-1')}>
-                      <ContactListItem
+                      <ClientetListItem
                         chat
                         contact={contact}
                         onContactClick={(contactId) => dispatch(getChat(contactId))}
@@ -156,7 +161,7 @@ function MainSidebar(props) {
                 {filteredContacts.map((contact, index) => (
                   <motion.div variants={item} key={contact.id}>
                     <div className={clsx(filteredContacts.length !== index + 1 && 'border-b-1')}>
-                      <ContactListItem
+                      <ClientetListItem
                         contact={contact}
                         onContactClick={(contactId) => dispatch(getChat(contactId))}
                       />

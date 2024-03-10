@@ -2,7 +2,7 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
 import { useContext } from 'react';
-import { ChatAppContext } from './ChatApp';
+import { ChatAppContext } from './CreditoApp';
 
 const ChatFirstScreen = () => {
   const { setMainSidebarOpen } = useContext(ChatAppContext);

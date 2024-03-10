@@ -1,3 +1,4 @@
+/* eslint-disable import/no-cycle */
 import { styled } from '@mui/material/styles';
 import SwipeableDrawer from '@mui/material/SwipeableDrawer';
 import withReducer from 'app/store/withReducer';
@@ -7,7 +8,7 @@ import { Outlet, useLocation } from 'react-router-dom';
 import FusePageSimple from '@fuse/core/FusePageSimple';
 import useThemeMediaQuery from '@fuse/hooks/useThemeMediaQuery';
 import MainSidebar from './sidebars/main/MainSidebar';
-import ContactSidebar from './sidebars/contact/ContactSidebar';
+import ContactSidebar from './sidebars/cliente/ClienteSidebar';
 import reducer from './store';
 import { getUserData } from './store/userSlice';
 import { getContacts } from './store/contactsSlice';

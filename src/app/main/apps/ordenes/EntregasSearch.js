@@ -6,7 +6,7 @@ import InputAdornment from '@mui/material/InputAdornment';
 import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
 import { selectSearchText, setNotesSearchText } from './store/notesSlice';
 
-function NotesSearch(props) {
+function EntregasSearch(props) {
   const dispatch = useDispatch();
   const searchText = useSelector(selectSearchText);
 
@@ -16,7 +16,7 @@ function NotesSearch(props) {
       initial={{ y: -20, opacity: 0 }}
       animate={{ y: 0, opacity: 1, transition: { delay: 0.2 } }}
       className="flex flex-1 items-center px-16 rounded-full h-40 w-fullsm:max-w-240"
-      placeholder="Search note"
+      placeholder="Buscar Pedidos..."
       variant="outlined"
       fullWidth
       startAdornment={
@@ -33,8 +33,8 @@ function NotesSearch(props) {
   );
 }
 
-NotesSearch.propTypes = {};
-NotesSearch.defaultProps = {
+EntregasSearch.propTypes = {};
+EntregasSearch.defaultProps = {
   trigger: (
     <IconButton className="w-64 h-64" size="large">
       <FuseSvgIcon>heroicons-outline:search</FuseSvgIcon>
@@ -42,4 +42,4 @@ NotesSearch.defaultProps = {
   ),
 };
 
-export default NotesSearch;
+export default EntregasSearch;

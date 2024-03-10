@@ -8,7 +8,7 @@ import PresentacionAppConfig from './presentaciones/PresentacionAppConfig';
 import MarcasAppConfig from './marcas/MarcasAppConfig';
 import CreditoAppConfig from './creditos/CreditoAppConfig';
 import VentasAppConfig from './ventas/VentasAppConfig';
-import PedidosEntregaAppConfig from './ordenes/PedidosAppConfig';
+import EntregaAppConfig from './ordenes/EntregasAppConfig';
 
 const appsConfigs = [
   ProfileAppConfig,
@@ -21,7 +21,7 @@ const appsConfigs = [
   MarcasAppConfig,
   CreditoAppConfig,
   VentasAppConfig,
-  PedidosEntregaAppConfig,
+  EntregaAppConfig,
 ];
 
 export default appsConfigs;

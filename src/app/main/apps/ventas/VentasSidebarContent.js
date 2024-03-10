@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unknown-property */
 import NavLinkAdapter from '@fuse/core/NavLinkAdapter';
 import { styled } from '@mui/material/styles';
 import List from '@mui/material/List';
@@ -6,7 +7,7 @@ import ListItemText from '@mui/material/ListItemText';
 import { motion } from 'framer-motion';
 import { useDispatch, useSelector } from 'react-redux';
 import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
-import { openLabelsDialog, selectLabels } from './store/labelsSlice';
+import { selectLabels } from './store/labelsSlice';
 
 const StyledListItem = styled(ListItem)(({ theme, active }) => ({
   color: 'inherit!important',
@@ -48,60 +49,38 @@ function NotesSidebarContent(props) {
           <StyledListItem
             button
             component={NavLinkAdapter}
-            to="/apps/notes"
+            to="/apps/ventas"
             end
             activeClassName="active"
           >
             <FuseSvgIcon className="list-item-icon" color="disabled">
               heroicons-outline:pencil-alt
             </FuseSvgIcon>
-            <ListItemText className="truncate" primary="Notes" disableTypography />
+            <ListItemText className="truncate" primary="Todas" disableTypography />
           </StyledListItem>
           <StyledListItem
             button
             component={NavLinkAdapter}
-            to="/apps/notes/reminders"
+            to="/apps/ventas/online"
             end
             activeClassName="active"
           >
             <FuseSvgIcon className="list-item-icon" color="disabled">
               heroicons-outline:bell
             </FuseSvgIcon>
-            <ListItemText className="truncate" primary="Reminders" disableTypography />
+            <ListItemText className="truncate" primary="Ventas Online" disableTypography />
           </StyledListItem>
 
           <StyledListItem
             button
             component={NavLinkAdapter}
-            to="/apps/notes/archive"
+            to="/apps/ventas/local"
             activeClassName="active"
           >
             <FuseSvgIcon className="list-item-icon" color="disabled">
               heroicons-outline:archive
             </FuseSvgIcon>
-            <ListItemText className="truncate" primary="Archive" disableTypography />
-          </StyledListItem>
-
-          {labels.map((label) => (
-            <StyledListItem
-              key={label.id}
-              button
-              component={NavLinkAdapter}
-              to={`/apps/notes/labels/${label.id}`}
-              end
-              activeClassName="active"
-            >
-              <FuseSvgIcon className="list-item-icon" color="disabled">
-                heroicons-outline:tag
-              </FuseSvgIcon>
-              <ListItemText className="truncate" primary={label.title} disableTypography />
-            </StyledListItem>
-          ))}
-          <StyledListItem button onClick={(ev) => dispatch(openLabelsDialog())}>
-            <FuseSvgIcon className="list-item-icon" color="disabled">
-              heroicons-outline:pencil
-            </FuseSvgIcon>
-            <ListItemText className="truncate" primary="Edit Labels" disableTypography />
+            <ListItemText className="truncate" primary="Ventas Locales" disableTypography />
           </StyledListItem>
         </List>
       </div>

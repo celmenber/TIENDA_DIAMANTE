@@ -5,7 +5,7 @@ import Typography from '@mui/material/Typography';
 import { motion } from 'framer-motion';
 import { useDispatch, useSelector } from 'react-redux';
 import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
-import NotesSearch from './NotesSearch';
+import NotesSearch from './VentasSearch';
 import { selectVariateDescSize, toggleVariateDescSize } from './store/notesSlice';
 
 function NotesHeader(props) {
@@ -33,7 +33,7 @@ function NotesHeader(props) {
             delay={300}
             className="text-24 md:text-32 font-extrabold tracking-tight leading-none"
           >
-            Notes
+            Ventas
           </Typography>
         </div>
       </div>

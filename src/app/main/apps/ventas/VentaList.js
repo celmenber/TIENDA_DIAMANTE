@@ -5,7 +5,7 @@ import Masonry from 'react-masonry-css';
 import { useSelector } from 'react-redux';
 import withRouter from '@fuse/core/withRouter';
 import { useParams } from 'react-router-dom';
-import NoteListItem from './NoteListItem';
+import NoteListItem from './VentaListItem';
 import { selectNotes, selectSearchText, selectVariateDescSize } from './store/notesSlice';
 
 function NoteList(props) {

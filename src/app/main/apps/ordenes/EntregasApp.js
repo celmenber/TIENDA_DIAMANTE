@@ -7,11 +7,11 @@ import Box from '@mui/material/Box';
 import FusePageCarded from '@fuse/core/FusePageCarded';
 import useThemeMediaQuery from '@fuse/hooks/useThemeMediaQuery';
 import LabelsDialog from './dialogs/labels/LabelsDialog';
-import NoteDialog from './dialogs/note/NoteDialog';
-import NewNote from './NewNote';
-import NoteList from './NoteList';
-import NotesHeader from './NotesHeader';
-import NotesSidebarContent from './NotesSidebarContent';
+// import NoteDialog from './dialogs/note/NoteDialog';
+import NewEntrega from './NewEntrega';
+import EntregaList from './EntregaList';
+import EntregasHeader from './EntregasHeader';
+import EntregasSidebarContent from './EntregasSidebarContent';
 import reducer from './store';
 import { getLabels } from './store/labelsSlice';
 import { getNotes } from './store/notesSlice';
@@ -22,7 +22,7 @@ const Root = styled(FusePageCarded)(({ theme }) => ({
   '& .FusePageCarded-leftSidebar': {},
 }));
 
-function NotesApp(props) {
+function EntregasApp(props) {
   const dispatch = useDispatch();
   const isMobile = useThemeMediaQuery((theme) => theme.breakpoints.down('lg'));
   const [leftSidebarOpen, setLeftSidebarOpen] = useState(!isMobile);
@@ -36,7 +36,7 @@ function NotesApp(props) {
   return (
     <>
       <Root
-        header={<NotesHeader onSetSidebarOpen={setLeftSidebarOpen} />}
+        header={<EntregasHeader onSetSidebarOpen={setLeftSidebarOpen} />}
         content={
           <div className="flex flex-col w-full items-center p-24">
             <Box
@@ -48,10 +48,10 @@ function NotesApp(props) {
                     : lighten(theme.palette.background.default, 0.02),
               }}
             >
-              <NewNote />
-              <NoteList />
+              <NewEntrega />
+              <EntregaList />
             </Box>
-            <NoteDialog />
+            {/*    <NoteDialog /> */}
             <LabelsDialog />
           </div>
         }
@@ -59,11 +59,11 @@ function NotesApp(props) {
         leftSidebarOnClose={() => {
           setLeftSidebarOpen(false);
         }}
-        leftSidebarContent={<NotesSidebarContent />}
+        leftSidebarContent={<EntregasSidebarContent />}
         scroll={isMobile ? 'normal' : 'content'}
       />
     </>
   );
 }
 
-export default withReducer('notesApp', reducer)(NotesApp);
+export default withReducer('notesApp', reducer)(EntregasApp);

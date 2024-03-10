@@ -1,8 +1,8 @@
 import { lazy } from 'react';
-import Credito from './chat/Chat';
-import CreditoFirstScreen from './ChatFirstScreen';
+import Credito from './credito/Credito';
+import CreditoFirstScreen from './CreditoFirstScreen';
 
-const CreditoApp = lazy(() => import('./ChatApp'));
+const CreditoApp = lazy(() => import('./CreditoApp'));
 
 const ChatAppConfig = {
   settings: {

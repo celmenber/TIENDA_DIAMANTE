@@ -69,7 +69,7 @@ const navigationConfig = [
     translate: 'Aplicaciones',
     children: [
       {
-        id: 'apps.contacts',
+        id: 'apps.clientes',
         title: 'Clientes',
         type: 'item',
         icon: 'heroicons-outline:user-group',
@@ -77,33 +77,33 @@ const navigationConfig = [
         translate: 'CLIENTES',
       },
       {
-        id: 'apps.ecommerce',
+        id: 'apps.bodega',
         title: 'BODEGA',
         type: 'collapse',
         icon: 'heroicons-outline:home',
         translate: 'BODEGA',
         children: [
           {
-            id: 'e-commerce-products',
+            id: 'o-compras-products',
             title: 'Productos',
             type: 'item',
             url: 'apps/o-compras/products',
             end: true,
           },
           {
-            id: 'e-commerce-product-detail',
+            id: 'categorias-product-detail',
             title: 'Categorias',
             type: 'item',
             url: '/apps/categorias',
           },
           {
-            id: 'e-commerce-new-product',
+            id: 'presentacion-new-product',
             title: 'Presentación',
             type: 'item',
             url: 'apps/presentacion',
           },
           {
-            id: 'e-commerce-order-detail',
+            id: 'marcas-order-detail',
             title: 'Marcas',
             type: 'item',
             url: 'apps/marcas',
@@ -111,7 +111,7 @@ const navigationConfig = [
         ],
       },
       {
-        id: 'apps.help-center',
+        id: 'apps.compras',
         title: 'COMPRAS',
         type: 'collapse',
         icon: 'heroicons-outline:shopping-cart',
@@ -124,7 +124,7 @@ const navigationConfig = [
             end: true,
           },
           {
-            id: 'e-commerce-orders',
+            id: 'compras-orders',
             title: 'Ordenes de compras',
             type: 'item',
             url: 'apps/o-compras/orders',
@@ -151,13 +151,13 @@ const navigationConfig = [
             url: '/apps/ventas',
           },
           {
-            id: 'pages.pricing.table',
+            id: 'ordenesentregas.pricing.table',
             title: 'Entregadas Pedidos',
             type: 'item',
             url: '/apps/ordenesentregas',
           },
           {
-            id: 'pages.pricing.table',
+            id: 'credito.pricing.table',
             title: 'Cuentas por Cobrar',
             type: 'item',
             url: '/apps/credito',

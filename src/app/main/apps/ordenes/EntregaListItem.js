@@ -4,8 +4,8 @@ import clsx from 'clsx';
 import { motion } from 'framer-motion';
 import { useDispatch } from 'react-redux';
 import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
-import NoteLabel from './NoteLabel';
-import NoteReminderLabel from './NoteReminderLabel';
+import NoteLabel from './EntregaLabel';
+import NoteReminderLabel from './EntregaReminderLabel';
 import setDescriptionStyle from './setDescriptionStyle';
 import { openNoteDialog } from './store/notesSlice';
 

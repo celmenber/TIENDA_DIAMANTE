@@ -1,8 +1,8 @@
 import { lazy } from 'react';
 
-const PedidosApp = lazy(() => import('./PedidosApp'));
+const EntregasApp = lazy(() => import('./EntregasApp'));
 
-const NotesAppConfig = {
+const EntregasAppConfig = {
   settings: {
     layout: {
       config: {},
@@ -11,15 +11,15 @@ const NotesAppConfig = {
   routes: [
     {
       path: 'apps/ordenesentregas',
-      element: <PedidosApp />,
+      element: <EntregasApp />,
       children: [
         {
           path: ':filter',
-          element: <PedidosApp />,
+          element: <EntregasApp />,
           children: [
             {
               path: ':id',
-              element: <PedidosApp />,
+              element: <EntregasApp />,
             },
           ],
         },
@@ -28,4 +28,4 @@ const NotesAppConfig = {
   ],
 };
 
-export default NotesAppConfig;
+export default EntregasAppConfig;

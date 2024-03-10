@@ -1,3 +1,4 @@
+/* eslint-disable import/no-cycle */
 import IconButton from '@mui/material/IconButton';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
@@ -10,9 +11,9 @@ import { lighten } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import { selectContactById } from '../../store/contactsSlice';
 import ContactAvatar from '../../ContactAvatar';
-import { ChatAppContext } from '../../ChatApp';
+import { ChatAppContext } from '../../CreditoApp';
 
-function ContactSidebar(props) {
+function ClienteSidebar(props) {
   const { setContactSidebarOpen } = useContext(ChatAppContext);
   const routeParams = useParams();
   const contactId = routeParams.id;
@@ -137,4 +138,4 @@ function ContactSidebar(props) {
   );
 }
 
-export default ContactSidebar;
+export default ClienteSidebar;

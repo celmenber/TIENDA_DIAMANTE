@@ -19,7 +19,7 @@ import { lighten } from '@mui/material/styles';
 import Statuses from '../../Statuses';
 import ContactAvatar from '../../ContactAvatar';
 import { selectUser, updateUserData } from '../../store/userSlice';
-import { ChatAppContext } from '../../ChatApp';
+import { ChatAppContext } from '../../CreditoApp';
 
 function UserSidebar(props) {
   const { setUserSidebarOpen } = useContext(ChatAppContext);

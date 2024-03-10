@@ -20,8 +20,8 @@ import NoteFormLabelMenu from './NoteFormLabelMenu';
 import NoteFormReminder from './NoteFormReminder';
 import NoteFormUploadImage from './NoteFormUploadImage';
 import NoteModel from '../model/NoteModel';
-import NoteReminderLabel from '../NoteReminderLabel';
-import NoteLabel from '../NoteLabel';
+import NoteReminderLabel from '../EntregaReminderLabel';
+import NoteLabel from '../EntregaLabel';
 
 /**
  * Form Validation Schema

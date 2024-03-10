@@ -25,7 +25,7 @@ function ContactListItem(props) {
       className="px-32 py-12 min-h-80"
       active={routeParams.id === contact.id ? 1 : 0}
       component={NavLinkAdapter}
-      to={`/apps/chat/${contact.id}`}
+      to={`/apps/credito/${contact.id}`}
       end
       activeClassName="active"
     >

@@ -3,7 +3,7 @@ import IconButton from '@mui/material/IconButton';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
-import { ChatAppContext } from '../../ChatApp';
+import { ChatAppContext } from '../../CreditoApp';
 
 const MainSidebarMoreMenu = (props) => {
   const { setUserSidebarOpen } = useContext(ChatAppContext);

@@ -16,8 +16,8 @@ import { getChat, selectChat, sendMessage } from '../store/chatSlice';
 import { selectContactById } from '../store/contactsSlice';
 import { selectUser } from '../store/userSlice';
 import ContactAvatar from '../ContactAvatar';
-import ChatMoreMenu from './ChatMoreMenu';
-import { ChatAppContext } from '../ChatApp';
+import ChatMoreMenu from './CreditoMoreMenu';
+import { ChatAppContext } from '../CreditoApp';
 
 const StyledMessageRow = styled('div')(({ theme }) => ({
   '&.contact': {

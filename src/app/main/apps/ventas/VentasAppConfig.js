@@ -1,6 +1,6 @@
 import { lazy } from 'react';
 
-const VentasApp = lazy(() => import('./NotesApp'));
+const VentasApp = lazy(() => import('./VentasApp'));
 
 const NotesAppConfig = {
   settings: {
